@@ -27,5 +27,5 @@ public class MainActivity extends AppCompatActivity {
     d. 把東西(喜愛店家)存在使用者的裝置上?
     e. 實作一個可以方便建立大量店家的API
     f. 紀錄店家被查看的次數 並 統計
-
+helloooooooo56
 */

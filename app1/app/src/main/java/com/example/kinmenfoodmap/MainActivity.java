@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
 // 到這邊 分配工作
 /*
+
+HELLO 測試GIT PUSH
+
 1. xml設計
     a. 分頁功能
     b. 基本元件(id)

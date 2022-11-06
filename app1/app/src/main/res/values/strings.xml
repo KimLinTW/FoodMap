@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">KinmenFoodMap</string>
+    <string name="menu_home">主頁</string>
+    <string name="menu_search">搜尋</string>
+    <string name="menu_box">驚喜箱</string>
+    <string name="menu_like">最愛</string>
+    <string name="menu_user">個人</string>
+
 </resources>

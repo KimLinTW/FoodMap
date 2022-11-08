@@ -1,16 +1,62 @@
 package com.example.kinmenfoodmap;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.example.kinmenfoodmap.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
+    ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        replaceFragment(new HomeFragment());
+
+        binding.menu.setOnItemSelectedListener(item -> {
+
+            switch (item.getItemId())
+            {
+                case R.id.item1:
+                    replaceFragment(new HomeFragment());
+                    break;
+                case  R.id.item2:
+                    replaceFragment(new searchFragment());
+                    break;
+                case  R.id.item3:
+                    replaceFragment(new SurpriseFragment());
+                    break;
+                case  R.id.item4:
+                    replaceFragment(new favoriteFragment());
+                    break;
+                case  R.id.item5:
+                    replaceFragment(new accountFragment());
+                    break;
+
+            }
+
+
+        return  true;
+        });
+
+
     }
+
+    private  void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.menu_layout,fragment);
+        fragmentTransaction.commit();
+    }
+
+
+
 }
 
 // 到這邊 分配工作

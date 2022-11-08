@@ -5,5 +5,7 @@
     <string name="menu_box">驚喜箱</string>
     <string name="menu_like">最愛</string>
     <string name="menu_user">個人</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

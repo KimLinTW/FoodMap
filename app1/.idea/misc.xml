@@ -14,8 +14,8 @@
         <entry key="app/src/main/res/layout/favorite.xml" value="0.22146739130434784" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.17844202898550723" />
         <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.17844202898550723" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.17844202898550723" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.17844202898550723" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.162841796875" />
         <entry key="app/src/main/res/layout/fragment_surprise.xml" value="0.17844202898550723" />
         <entry key="app/src/main/res/layout/search.xml" value="0.22146739130434784" />
         <entry key="app/src/main/res/layout/surprise.xml" value="0.22146739130434784" />
@@ -28,5 +28,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

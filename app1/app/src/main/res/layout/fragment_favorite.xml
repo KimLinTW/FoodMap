@@ -76,8 +76,8 @@
             android:id="@+id/imageFilterView"
             android:layout_width="50dp"
             android:layout_height="49dp"
-            android:layout_marginStart="164dp"
-            android:layout_marginBottom="312dp"
+            android:layout_marginStart="168dp"
+            android:layout_marginBottom="360dp"
             android:src="@drawable/search"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

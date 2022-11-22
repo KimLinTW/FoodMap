@@ -28,10 +28,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
-            android:layout_width="395dp"
-            android:layout_height="61dp"
+            android:layout_width="392dp"
+            android:layout_height="91dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="65dp">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
@@ -72,15 +74,107 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/imageFilterView"
-            android:layout_width="50dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="168dp"
-            android:layout_marginBottom="360dp"
-            android:src="@drawable/search"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="160dp"
+            android:layout_height="167dp"
+            android:layout_marginStart="124dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+            <TextView
+                android:id="@+id/add_db"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="#C3E2E6"
+                android:clickable="true"
+                android:shadowColor="#61DCEC"
+                android:text="ADD"
+                android:textColor="#4CAF50"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/del_db"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:background="#C3E2E6"
+                android:clickable="true"
+                android:shadowColor="#61DCEC"
+                android:text="DEL"
+                android:textColor="#4CAF50"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/add_db"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/change_db"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="24dp"
+                android:background="#C3E2E6"
+                android:clickable="true"
+                android:shadowColor="#61DCEC"
+                android:text="CHENGE"
+                android:textColor="#4CAF50"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_db" />
+
+            <TextView
+                android:id="@+id/show_db"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:background="#C3E2E6"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:shadowColor="#61DCEC"
+                android:text="SHOW"
+                android:textColor="#4CAF50"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_db" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tst_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:layout_marginBottom="32dp"
+            android:text="金鼎燒鍋@理工大樓旁邊@12:00-13:30"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout5"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/result_db"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="72dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="124dp"
+            android:onClick="onClick"
+            android:text="Button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tst_data" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

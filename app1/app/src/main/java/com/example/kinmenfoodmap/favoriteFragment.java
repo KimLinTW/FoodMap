@@ -4,16 +4,19 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link favoriteFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class favoriteFragment extends Fragment {
+public class favoriteFragment extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,5 +63,20 @@ public class favoriteFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favorite, container, false);
+    }
+
+
+
+    public void button_Click(View view){
+//        TextView output = (TextView)findViewById(R.id.show_db);
+    }
+
+    @Override
+    public void onClick(View view) {
+        TextView output = (TextView)findViewById(R.id.show_db);
+        // 點擊[view]顯示一些東西   問題:找不到findViewById ->  import androidx.appcompat.app.AppCompatActivity;未生效 原因: 不知道??
+        // 在MainActivity.java import 有生效 -> findViewById 功能也正常
+//        output_db = output_db.findViewById(R.id.show_db);
+//        output_db.setText("123");
     }
 }

@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
             }
+
 
 
         return  true;

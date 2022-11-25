@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -29,6 +30,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
 
         Button btn1 = (Button) view.findViewById(R.id.button2);
+
         Button btn2 = (Button) view.findViewById(R.id.button3);
         TextView output = (TextView) view.findViewById(R.id.result_db);
 
@@ -48,6 +50,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
 
 
 
+
         return view;
     }
 
@@ -59,10 +62,15 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        System.out.println("跳跳出來");
         TextView output = (TextView)getView().findViewById(R.id.show_db);
         // 點擊[view]顯示一些東西   問題:找不到findViewById ->  import androidx.appcompat.app.AppCompatActivity;未生效 原因: 不知道??
         // 在MainActivity.java import 有生效 -> findViewById 功能也正常
 //        output_db = output_db.findViewById(R.id.show_db);
 //        output_db.setText("123");
     }
+
+
+
+
 }

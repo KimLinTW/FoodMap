@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-/**
- */
+
 public class accFragment extends Fragment {
 
 
@@ -24,10 +23,7 @@ public class accFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -38,12 +34,14 @@ public class accFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_acc, container, false);
         // Inflate the layout for this fragment
         System.out.println("這裡嗎");
+
         Button btn1 = (Button) view.findViewById(R.id.btn_record);
         Button btn2 = (Button) view.findViewById(R.id.btn_person);
         Button btn3 = (Button) view.findViewById(R.id.btn_discount);
         Button btn4 = (Button) view.findViewById(R.id.btn_background);
         Button btn5 = (Button) view.findViewById(R.id.btn_scoreapp);
         Button btn6 = (Button) view.findViewById(R.id.btn_aboutus);
+
         System.out.println("還是這裡嗎");
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +52,7 @@ public class accFragment extends Fragment {
                                       //  view = inflater.inflate(R.layout.acc_record, container, false);
                                     }
                                 });
+
 
     return view;
 

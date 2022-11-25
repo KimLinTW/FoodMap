@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.parse.ParseObject;
 
+import com.parse.ParseObject;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to

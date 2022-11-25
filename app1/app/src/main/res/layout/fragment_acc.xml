@@ -59,7 +59,7 @@
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
-                tools:src="@tools:sample/avatars" />
+                tools:src="@drawable/book" />
 
             <Button
                 android:id="@+id/button5"
@@ -79,7 +79,7 @@
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
-                tools:src="@tools:sample/avatars" />
+                tools:src="@drawable/pen" />
 
             <Button
                 android:id="@+id/button4"
@@ -99,6 +99,7 @@
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
+                app:srcCompat="@drawable/offer"
                 tools:src="@tools:sample/avatars" />
 
             <Button
@@ -119,6 +120,7 @@
                 android:layout_width="14dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
+                app:srcCompat="@drawable/backgroundcolor"
                 tools:src="@tools:sample/avatars" />
 
             <Button
@@ -139,6 +141,7 @@
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
+                app:srcCompat="@drawable/star"
                 tools:src="@tools:sample/avatars" />
 
             <Button
@@ -177,9 +180,10 @@
 
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="146dp"
-                android:layout_height="match_parent"
+                android:layout_width="16dp"
+                android:layout_height="49dp"
                 android:layout_weight="0.1"
+                app:srcCompat="@drawable/us"
                 tools:src="@tools:sample/avatars" />
 
             <Button

@@ -49,7 +49,7 @@ public class accFragment extends Fragment {
                                     public void onClick(View view) {
                                         System.out.println("AAAA");
                                        // replaceFragment(new accFragment());
-                                      //  view = inflater.inflate(R.layout.acc_record, container, false);
+                                        //  view = inflater.inflate(R.layout.acc_record, container, false);
                                     }
                                 });
 
@@ -59,9 +59,9 @@ public class accFragment extends Fragment {
     }
 
     private  void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.menu_layout,fragment);
-        fragmentTransaction.commit();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.menu_layout,fragment);
+//        fragmentTransaction.commit();
     }
 }

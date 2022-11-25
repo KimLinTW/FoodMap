@@ -35,8 +35,7 @@
 
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
-                app:srcCompat="@drawable/back"
-                tools:src="@drawable/tst" />
+                app:srcCompat="@drawable/customerservice"/>
 
             <TextView
                 android:id="@+id/username"
@@ -180,13 +179,8 @@
 
             <ImageView
                 android:id="@+id/imageView8"
-<<<<<<< HEAD
-                android:layout_width="16dp"
-                android:layout_height="49dp"
-=======
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
->>>>>>> bbaf2696164b43927f649cd2ee202ef99144bb3a
                 android:layout_weight="0.1"
                 app:srcCompat="@drawable/us"
                 tools:src="@tools:sample/avatars" />

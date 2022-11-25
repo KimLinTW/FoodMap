@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(new favoriteFragment());
                     break;
                 case  R.id.item5:
-                    replaceFragment(new accountFragment());
+                    replaceFragment(new accFragment());
                     break;
 
             }

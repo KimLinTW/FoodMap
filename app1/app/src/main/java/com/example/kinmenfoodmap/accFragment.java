@@ -5,14 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
 
 
 public class accFragment extends Fragment {
+
 
 
 
@@ -33,10 +38,14 @@ public class accFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_acc, container, false);
         // Inflate the layout for this fragment
         System.out.println("這裡嗎");
+
         Button btn1 = (Button) view.findViewById(R.id.button5);
 
+
         System.out.println("還是這裡嗎");
+
         btn1.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 System.out.println("到這裡對嗎");
@@ -45,8 +54,16 @@ public class accFragment extends Fragment {
             }
         });
 
-        return view;
 
 
+    return view;
+
+    }
+
+    private  void replaceFragment(Fragment fragment){
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.menu_layout,fragment);
+//        fragmentTransaction.commit();
     }
 }

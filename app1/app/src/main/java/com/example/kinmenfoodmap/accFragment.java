@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,18 +65,52 @@ public class accFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_acc, container, false);
         // Inflate the layout for this fragment
         System.out.println("這裡嗎");
-        Button btn1 = (Button) view.findViewById(R.id.button2);
+        Button btn1 = (Button) view.findViewById(R.id.btn_record);
+        Button btn2 = (Button) view.findViewById(R.id.btn_person);
+        Button btn3 = (Button) view.findViewById(R.id.btn_discount);
+        Button btn4 = (Button) view.findViewById(R.id.btn_background);
+        Button btn5 = (Button) view.findViewById(R.id.btn_scoreapp);
+        Button btn6 = (Button) view.findViewById(R.id.btn_aboutus);
 
         System.out.println("還是這裡嗎");
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                view = inflater.inflate(R.layout.fragment_favorite, container, false);
+                view = inflater.inflate(R.layout.fragment_surprise, container, false);
             }
         });
-
-        return view;
-
+        btn2.setOnClickListener(new View.OnClickListener(){
+             @Override
+             public void onClick(View view) {
+                 view = inflater.inflate(R.layout.fragment_surprise, container, false);
+             }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view = inflater.inflate(R.layout.fragment_surprise, container, false);
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view = inflater.inflate(R.layout.fragment_surprise, container, false);
+            }
+        });
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view = inflater.inflate(R.layout.fragment_surprise, container, false);
+            }
+        });
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view = inflater.inflate(R.layout.fragment_surprise, container, false);
+            }
+        });
+    return view;
 
     }
 }

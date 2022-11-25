@@ -28,12 +28,26 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
         // Inflate the layout for this fragment
-        System.out.println("這裡嗎");
-        Button btn1 = (Button) view.findViewById(R.id.button2);
-       // Button btn2 = (Button) view.findViewById(R.id.button2);
 
-        System.out.println("還是這裡嗎");
-        btn1.setOnClickListener(this);
+        Button btn1 = (Button) view.findViewById(R.id.button2);
+
+        Button btn2 = (Button) view.findViewById(R.id.button3);
+        TextView output = (TextView) view.findViewById(R.id.result_db);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                output.setText("Button 1");
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                output.setText("Button 2");
+            }
+        });
+
 
 
 

@@ -39,7 +39,7 @@ public class accFragment extends Fragment {
         // Inflate the layout for this fragment
         System.out.println("這裡嗎");
 
-        Button btn1 = (Button) view.findViewById(R.id.button5);
+        Button btn1 = (Button) view.findViewById(R.id.btn_record);
 
 
         System.out.println("還是這裡嗎");

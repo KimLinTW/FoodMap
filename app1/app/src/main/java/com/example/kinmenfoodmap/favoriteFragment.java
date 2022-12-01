@@ -44,6 +44,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
         Button btn2 = (Button) view.findViewById(R.id.button3);
         TextView output = (TextView) view.findViewById(R.id.result_db);
 
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,13 +53,16 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                 query.whereEqualTo("objectId", "0mfC6T5HHR");
 
 
+
                 System.out.println(query);
                 query.getFirstInBackground(new GetCallback<ParseObject>() {
                     public void done(ParseObject player, ParseException e) {
                         System.out.println("10");
                         if (e == null) {
                             System.out.println("ok:");
-                            System.out.println(player.getString("message"));
+                            String response;
+                            response = player.getString("message");
+                            System.out.println(response);
                         } else {
                             System.out.println("error");
                             // Something is wrong
@@ -71,9 +75,11 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                         if (e == null) {
                             // Now let's update it with some new data. In this case, only cheatMode and score
                             // will get sent to the Parse Cloud. playerName hasn't changed.
-                            player.put("yearOfBirth", 1998);
-                            player.put("emailContact", "a.wed@domain.io");
-                            player.put("message","yes");
+//                            player.put("yearOfBirth", 1998);
+//                            player.put("emailContact", "a.wed@domain.io");
+
+                            player.put("message","yes1");
+                            player.put("objectId","123");
                             player.saveInBackground();
                         } else {
                             // Failed

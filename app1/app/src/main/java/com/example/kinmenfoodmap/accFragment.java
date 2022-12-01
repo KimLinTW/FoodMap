@@ -19,11 +19,6 @@ import android.widget.TextView;
 public class accFragment extends Fragment {
 
 
-
-
-
-
-
    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,22 +32,38 @@ public class accFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_acc, container, false);
         // Inflate the layout for this fragment
-        System.out.println("這裡嗎");
 
         Button btn1 = (Button) view.findViewById(R.id.btn_record);
+        Button btn_person = (Button) view.findViewById(R.id.btn_person);
+        Button btn_discount = (Button) view.findViewById(R.id.btn_discount);
 
-
-        System.out.println("還是這裡嗎");
 
         btn1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                System.out.println("到這裡對嗎");
+//              跳轉頁面
                Intent intent = new Intent(getActivity(),ActivityGood.class);
                startActivity(intent);
             }
         });
+
+        btn_person.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),modify_personal_info.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_discount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),discount_show.class);
+                startActivity(intent);
+            }
+        });
+
 
 
 

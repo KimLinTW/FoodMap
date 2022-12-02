@@ -162,7 +162,7 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/btn_bug"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"

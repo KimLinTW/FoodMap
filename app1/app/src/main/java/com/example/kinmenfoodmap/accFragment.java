@@ -36,6 +36,7 @@ public class accFragment extends Fragment {
         Button btn1 = (Button) view.findViewById(R.id.btn_record);
         Button btn_person = (Button) view.findViewById(R.id.btn_person);
         Button btn_discount = (Button) view.findViewById(R.id.btn_discount);
+        Button btn_bug = (Button) view.findViewById(R.id.btn_bug);
 
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +61,13 @@ public class accFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),discount_show.class);
+                startActivity(intent);
+            }
+        });
+        btn_bug.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), bugreport.class);
                 startActivity(intent);
             }
         });

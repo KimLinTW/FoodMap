@@ -4,9 +4,13 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.parse.Parse;
+import com.parse.ParseObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,6 +57,14 @@ public class SurpriseFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
+
+
+
+
+
+
     }
 
     @Override
@@ -60,5 +72,8 @@ public class SurpriseFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_surprise, container, false);
+    }
+    public void onClick(View view){
+        return ;
     }
 }

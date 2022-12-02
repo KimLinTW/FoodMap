@@ -40,9 +40,59 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
 
         Button btn1 = (Button) view.findViewById(R.id.button2);
-
         Button btn2 = (Button) view.findViewById(R.id.button3);
+        TextView btn_add = (TextView) view.findViewById(R.id.add_db);
+        TextView btn_show = (TextView) view.findViewById(R.id.show_db);
+
         TextView output = (TextView) view.findViewById(R.id.result_db);
+
+
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            // add shop
+            public void onClick(View view) {
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("FirstClass");
+                query.whereEqualTo("objectId", "0mfC6T5HHR");
+
+            }
+        });
+
+        btn_show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            // show app
+            public void onClick(View view) {
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
+                query.whereEqualTo("shopName", "shop1");
+
+                System.out.println(query);
+                query.getFirstInBackground(new GetCallback<ParseObject>() {
+                    public void done(ParseObject player, ParseException e) {
+                        if (e == null) {
+                            System.out.println("ok:");
+                            String response="";
+                            response += player.getString("shopName");
+                            response += "\n";
+                            response += player.getString("ID");
+                            response += "\n";
+                            response += player.getString("address");
+                            response += "\n";
+                            response += player.getList("menu").indexOf(1);
+                            response += "\n";
+                            response += player.getString("closing");
+                            response += "\n";
+                            response += player.getString("business");
+                            response += "\n";
+                            System.out.println(response);
+                            output.setText(response);
+                        } else {
+                            System.out.println("error");
+                        }
+                    }
+                });
+
+//                output.setText(response);
+            }
+        });
 
 
         btn1.setOnClickListener(new View.OnClickListener() {

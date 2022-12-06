@@ -64,7 +64,6 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
                 query.whereEqualTo("shopName", "shop1");
 
-                System.out.println(query);
                 query.getFirstInBackground(new GetCallback<ParseObject>() {
                     public void done(ParseObject player, ParseException e) {
                         if (e == null) {
@@ -76,7 +75,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                             response += "\n";
                             response += player.getString("address");
                             response += "\n";
-                            response += player.getList("menu").indexOf(1);
+                            response += player.getList("menu");
                             response += "\n";
                             response += player.getString("closing");
                             response += "\n";

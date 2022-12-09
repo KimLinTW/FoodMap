@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".accFragment">
+    android:layout_height="wrap_content"
+    tools:context=".accountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,17 +30,17 @@
             <ImageView
 
                 android:id="@+id/imageView"
-                android:layout_width="match_parent"
+                android:layout_width="20dp"
 
                 android:layout_height="match_parent"
-                android:layout_weight="0.65"
-                app:srcCompat="@drawable/user" />
+                android:layout_weight="0.4"
+                tools:src="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/username"
-                android:layout_width="match_parent"
+                android:layout_width="280dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.1"
+                android:layout_weight="0.6"
                 android:gravity="center"
                 android:text="username"
                 android:textSize="24sp" />
@@ -55,18 +54,18 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="match_parent"
+                android:layout_width="20dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65"
-                app:srcCompat="@drawable/book"
-                tools:src="@drawable/book" />
+                android:layout_weight="0.1"
+                tools:src="@tools:sample/avatars" />
 
             <Button
                 android:id="@+id/btn_record"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
-                android:text="店家瀏覽紀錄"/>
+                android:onClick="onClick"
+                android:text="店家瀏覽紀錄" />
         </LinearLayout>
 
         <LinearLayout
@@ -76,16 +75,15 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="match_parent"
+                android:layout_width="20dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65"
-                app:srcCompat="@drawable/pen"
-                tools:src="@drawable/pen" />
+                android:layout_weight="0.1"
+                tools:src="@tools:sample/avatars" />
 
             <Button
                 android:id="@+id/btn_person"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:text="修改個人資料" />
         </LinearLayout>
@@ -97,16 +95,15 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="match_parent"
+                android:layout_width="20dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.65"
-                app:srcCompat="@drawable/offer"
+                android:layout_weight="0.1"
                 tools:src="@tools:sample/avatars" />
 
             <Button
                 android:id="@+id/btn_discount"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:text="優惠查看" />
         </LinearLayout>
@@ -118,16 +115,15 @@
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.65"
-                app:srcCompat="@drawable/backgroundcolor"
+                android:layout_width="14dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
                 tools:src="@tools:sample/avatars" />
 
             <Button
                 android:id="@+id/btn_background"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:text="變更背景顏色" />
         </LinearLayout>
@@ -139,16 +135,15 @@
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.65"
-                app:srcCompat="@drawable/star"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
                 tools:src="@tools:sample/avatars" />
 
             <Button
                 android:id="@+id/btn_scoreapp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:text="評分app" />
         </LinearLayout>
@@ -156,43 +151,42 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_weight="0.4"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.65"
-                app:srcCompat="@drawable/customerservice"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
                 tools:src="@tools:sample/avatars" />
 
             <Button
                 android:id="@+id/btn_bug"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:text="錯誤回報" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_weight="0.65"
-                app:srcCompat="@drawable/us"
+                android:layout_width="146dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
                 tools:src="@tools:sample/avatars" />
 
             <Button
                 android:id="@+id/btn_aboutus"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
-                android:text="關於我們" />
+                tools:text="關於我們" />
         </LinearLayout>
 
     </LinearLayout>

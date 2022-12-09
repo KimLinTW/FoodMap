@@ -18,12 +18,14 @@ import android.widget.TextView;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.List;
 
 public class favoriteFragment extends Fragment implements View.OnClickListener {
+    private String latandlng = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,7 +72,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                     public void done(ParseObject player, ParseException e) {
                         if (e == null) {
                             System.out.println("ok:");
-                            String response="";
+                            String response="", lat = "", lng = "";
                             response += player.getString("shopName");
                             response += "\n";
                             response += player.getString("ID");
@@ -85,18 +87,22 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                             response += "\n";
                             response += player.getParseGeoPoint("latitude_longitude");
                             response += "\n";
-                            String ttttt = "";
-                            ttttt += player.getParseGeoPoint("latitude_longitude");
+
+                            lat += player.getParseGeoPoint("latitude_longitude").getLatitude();
+                            lng += player.getParseGeoPoint("latitude_longitude").getLongitude();
+                            //latlng += player.getParseGeoPoint("latitude_longitude");
                             System.out.println(response);
-                            output.setText(response);
+                            output.setText(lat + "\n" + lng);
                         } else {
                             System.out.println("error");
                         }
                     }
                 });
 
-//                output.setText(response);
-
+                System.out.println("^^^^^^^^^^^^^^^^^^^^^^");
+                latandlng = output.getText().toString();
+                System.out.println(latandlng);
+                //output.setText(response);
             }
         });
 

@@ -76,7 +76,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                             response += "\n";
                             response += player.getString("address");
                             response += "\n";
-                            response += player.getList("menu").indexOf(1);
+                            response += player.getList("menu");
                             response += "\n";
                             response += player.getString("closing");
                             response += "\n";

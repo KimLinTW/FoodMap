@@ -21,6 +21,9 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class favoriteFragment extends Fragment implements View.OnClickListener {
@@ -41,6 +44,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
 
         Button btn1 = (Button) view.findViewById(R.id.button2);
         Button btn2 = (Button) view.findViewById(R.id.button3);
+        Button btn3 = (Button) view.findViewById(R.id.button9);
         TextView btn_add = (TextView) view.findViewById(R.id.add_db);
         TextView btn_show = (TextView) view.findViewById(R.id.show_db);
 
@@ -182,6 +186,43 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("login");
+                query.whereEqualTo("user_name", "test");
+                query.getFirstInBackground(new GetCallback<ParseObject>() {
+                    public void done(ParseObject player, ParseException e) {
+                        if (e == null) {
+                            System.out.println("ok:");
+                            String response = "";
+                            response += player.getString("hash_pass");
+                            System.out.println(response);
+                        }
+                    }
+                });
+
+                MessageDigest md = null;
+                try {
+                    md = MessageDigest.getInstance("SHA-1");
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                }
+                byte[] passbyte = new byte[0];
+                try {
+                    passbyte = "abcdef12".getBytes("UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                passbyte = md.digest(passbyte);
+                StringBuilder sb = new StringBuilder();
+                for (byte b : passbyte) {
+                    sb.append(String.format("%02x", b));
+                }
+
+            }
+        });
 
 
 

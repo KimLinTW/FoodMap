@@ -65,8 +65,9 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
             @Override
             // show app
             public void onClick(View view) {
+
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
-                query.whereEqualTo("shopName", "shop1");
+                query.whereEqualTo("shopName", "金食堂");
 
                 query.getFirstInBackground(new GetCallback<ParseObject>() {
                     public void done(ParseObject player, ParseException e) {
@@ -85,6 +86,10 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                             response += "\n";
                             response += player.getString("business");
                             response += "\n";
+                            response += player.getParseGeoPoint("latitude_longitude");
+                            response += "\n";
+                            String ttttt = "";
+                            ttttt += player.getParseGeoPoint("latitude_longitude");
                             System.out.println(response);
                             output.setText(response);
                         } else {
@@ -94,6 +99,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                 });
 
 //                output.setText(response);
+
             }
         });
 

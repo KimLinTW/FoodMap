@@ -22,12 +22,17 @@ import com.parse.ParseQuery;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class favoriteFragment extends Fragment implements View.OnClickListener {
+    private String latandlng = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
 
         Button btn1 = (Button) view.findViewById(R.id.button2);
         Button btn2 = (Button) view.findViewById(R.id.button3);
+        Button btn3 = (Button) view.findViewById(R.id.button9);
         TextView btn_add = (TextView) view.findViewById(R.id.add_db);
         TextView btn_show = (TextView) view.findViewById(R.id.show_db);
 
@@ -65,36 +71,45 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
             @Override
             // show app
             public void onClick(View view) {
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
-                query.whereEqualTo("shopName", "shop1");
 
-                System.out.println(query);
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
+                query.whereEqualTo("shopName", "金食堂");
+
                 query.getFirstInBackground(new GetCallback<ParseObject>() {
                     public void done(ParseObject player, ParseException e) {
                         if (e == null) {
                             System.out.println("ok:");
-                            String response="";
+                            String response="", lat = "", lng = "";
                             response += player.getString("shopName");
                             response += "\n";
                             response += player.getString("ID");
                             response += "\n";
                             response += player.getString("address");
                             response += "\n";
-                            response += player.getList("menu").indexOf(1);
+                            response += player.getList("menu");
                             response += "\n";
                             response += player.getString("closing");
                             response += "\n";
                             response += player.getString("business");
                             response += "\n";
+                            response += player.getParseGeoPoint("latitude_longitude");
+                            response += "\n";
+
+                            lat += player.getParseGeoPoint("latitude_longitude").getLatitude();
+                            lng += player.getParseGeoPoint("latitude_longitude").getLongitude();
+                            //latlng += player.getParseGeoPoint("latitude_longitude");
                             System.out.println(response);
-                            output.setText(response);
+                            output.setText(lat + "\n" + lng);
                         } else {
                             System.out.println("error");
                         }
                     }
                 });
 
-//                output.setText(response);
+                System.out.println("^^^^^^^^^^^^^^^^^^^^^^");
+                latandlng = output.getText().toString();
+                System.out.println(latandlng);
+                //output.setText(response);
             }
         });
 
@@ -127,6 +142,43 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("login");
+                query.whereEqualTo("user_name", "test");
+                query.getFirstInBackground(new GetCallback<ParseObject>() {
+                    public void done(ParseObject player, ParseException e) {
+                        if (e == null) {
+                            System.out.println("ok:");
+                            String response = "";
+                            response += player.getString("hash_pass");
+                            System.out.println(response);
+                        }
+                    }
+                });
+
+                MessageDigest md = null;
+                try {
+                    md = MessageDigest.getInstance("SHA-1");
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                }
+                byte[] passbyte = new byte[0];
+                try {
+                    passbyte = "abcdef12".getBytes("UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                passbyte = md.digest(passbyte);
+                StringBuilder sb = new StringBuilder();
+                for (byte b : passbyte) {
+                    sb.append(String.format("%02x", b));
+                }
+
+            }
+        });
 
 
 

@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -91,9 +95,11 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                             response += player.getParseGeoPoint("latitude_longitude");
                             response += "\n";
 
+
                             lat += player.getParseGeoPoint("latitude_longitude").getLatitude();
                             lng += player.getParseGeoPoint("latitude_longitude").getLongitude();
                             //latlng += player.getParseGeoPoint("latitude_longitude");
+
                             System.out.println(response);
                             output.setText(lat + "\n" + lng);
                         } else {
@@ -102,10 +108,12 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                     }
                 });
 
+
                 System.out.println("^^^^^^^^^^^^^^^^^^^^^^");
                 latandlng = output.getText().toString();
                 System.out.println(latandlng);
                 //output.setText(response);
+
             }
         });
 
@@ -113,68 +121,8 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 output.setText("Button 1");
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("FirstClass");
-                query.whereEqualTo("objectId", "0mfC6T5HHR");
-
-
-
-                System.out.println(query);
-                query.getFirstInBackground(new GetCallback<ParseObject>() {
-                    public void done(ParseObject player, ParseException e) {
-                        System.out.println("10");
-                        if (e == null) {
-                            System.out.println("ok:");
-                            String response;
-                            response = player.getString("message");
-                            System.out.println(response);
-                        } else {
-                            System.out.println("error");
-                            // Something is wrong
-                        }
-                    }
-                });
-
-                query.getInBackground("0mfC6T5HHR", new GetCallback<ParseObject>() {
-                    public void done(ParseObject player, ParseException e) {
-                        if (e == null) {
-                            // Now let's update it with some new data. In this case, only cheatMode and score
-                            // will get sent to the Parse Cloud. playerName hasn't changed.
-//                            player.put("yearOfBirth", 1998);
-//                            player.put("emailContact", "a.wed@domain.io");
-
-                            player.put("message","yes1");
-                            player.put("objectId","123");
-                            player.saveInBackground();
-                        } else {
-                            // Failed
-                        }
-                    }
-                });
-
-                /*
-                query.findInBackground(new FindCallback<ParseObject>() {
-                    public void done(List<ParseObject> objects, ParseException e) {
-                        if (e == null) {
-                            objectsWereRetrievedSuccessfully(objects);
-                            System.out.println("1");
-                            System.out.println(objects);
-                        } else {
-                            System.out.println(objects);
-                            System.out.println("2");
-                            output.setText("db error");
-                        }
-                    }
-
-
-                    private void objectsWereRetrievedSuccessfully(List<ParseObject> objects) {
-                        System.out.println("3");
-                        System.out.println(objects);
-                        output.setText(objects.toString());
-                    }
-                }); */
-
-
 
             }
         });
@@ -250,7 +198,22 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         System.out.println("跳跳出來");
-        TextView output = (TextView)getView().findViewById(R.id.show_db);
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
+
+        // The query will search for a ParseObject, given its objectId.
+        // When the query finishes running, it will invoke the GetCallback
+        // with either the object, or the exception thrown
+        query.getInBackground("<PARSE_OBJECT_ID>", (object, e) -> {
+            if (e == null) {
+                //Object was successfully retrieved
+            } else {
+                // something went wrong
+                System.out.println("有東西");
+               // Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //TextView output = (TextView)getView().findViewById(R.id.show_db);
         // 點擊[view]顯示一些東西   問題:找不到findViewById ->  import androidx.appcompat.app.AppCompatActivity;未生效 原因: 不知道??
         // 在MainActivity.java import 有生效 -> findViewById 功能也正常
 //        output_db = output_db.findViewById(R.id.show_db);

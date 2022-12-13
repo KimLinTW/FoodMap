@@ -33,6 +33,7 @@ public class accFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_acc, container, false);
         // Inflate the layout for this fragment
 
+
         Button btn1 = (Button) view.findViewById(R.id.btn_record);
         Button btn_person = (Button) view.findViewById(R.id.btn_person);
         Button btn_discount = (Button) view.findViewById(R.id.btn_discount);

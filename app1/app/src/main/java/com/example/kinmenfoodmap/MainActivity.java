@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
 
         super.onCreate(savedInstanceState);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());

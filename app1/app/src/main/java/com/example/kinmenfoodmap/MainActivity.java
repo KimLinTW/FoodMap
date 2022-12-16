@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         setContentView(binding.getRoot());
         replaceFragment(new favoriteFragment());
 
+
         binding.menu.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId())

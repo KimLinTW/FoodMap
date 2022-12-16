@@ -1,10 +1,21 @@
 package com.example.kinmenfoodmap;
 
-import com.google.android.gms.maps.model.LatLng;
+import android.app.ProgressDialog;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MapData {
+    ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
     // 台北101
     public static final LatLng POSITION_TAIPEI101 = new LatLng(25.033611, 121.565000);
     // 台北火車站
@@ -24,6 +35,12 @@ public class MapData {
         list.add(POSITION_NATIONAL_TAIWAN_MUSEUM);
         list.add(POSITION_KENTING);
         list.add(POSITION_ZINTUN);
+        System.out.println("看看list"+list);
         return list;
     }
+
+
+
+
+
 }

@@ -52,7 +52,7 @@ public class HomeFragment extends Fragment {
     HomeAdapter listAdapter;
     Handler handler = new Handler();
     ProgressDialog progressDialog;
-    int shop_amount = 10;
+    int shop_amount = 11;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -116,6 +116,7 @@ public class HomeFragment extends Fragment {
             }
             if (userlist.size() > shop_amount){
                 userlist.subList(0,shop_amount);
+                System.out.println("重整user list");
             }
         }
 

@@ -1,6 +1,8 @@
 package com.example.kinmenfoodmap;
 
 
+import static com.example.kinmenfoodmap.MainActivity.userlist;
+
 import android.app.Activity;
 
 import android.app.ProgressDialog;
@@ -50,15 +52,14 @@ import java.util.concurrent.TimeUnit;
 public class HomeFragment extends Fragment {
 
 
-    ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
+
     ActivityMainBinding binding;
   //  ArrayList<String> userlist;
-    HomeAdapter listAdapter;
+   public static HomeAdapter listAdapter;
 
-    Handler handler = new Handler();
-    ProgressDialog progressDialog;
-    int shop_amount = 11;
-    int threadflag = 0;
+
+
+   public static int threadflag = 0;
     int viewflag = 0;
 
     @Override
@@ -70,16 +71,22 @@ public class HomeFragment extends Fragment {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         //setContentView(binding.getRoot());
         //items = getActivity().getResources().getString(R.id.userlist);
-        userlist = new ArrayList<>();
+
 
         listAdapter = new HomeAdapter((Activity) view.getContext(),userlist);
         list1.setAdapter(listAdapter);
+        System.out.println("讓我看看userlist狀態"+userlist.size());
+        if(userlist.size()==0)
+        {
+            new fetchData().start();//userlist沒東西時才需要去抓資料
+        }
 
-        new thread2().start();
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //listAdapter.notifyDataSetChanged();
+                System.out.println("看看"+userlist.size());
+                listAdapter.notifyDataSetChanged();
             }
         });
 
@@ -89,7 +96,7 @@ public class HomeFragment extends Fragment {
 
 
 
-    class thread2 extends Thread{
+    /*class thread2 extends Thread{
 
         @Override
         public void run() {
@@ -120,10 +127,10 @@ public class HomeFragment extends Fragment {
         }
 
 
-    }
+    }*/
 
 
-    class fetchData extends Thread{
+    /*class fetchData extends Thread{
         String data = "";
         @Override
         public void run() {
@@ -149,7 +156,7 @@ public class HomeFragment extends Fragment {
                             /* System.out.println("object是什"+objects);
                             String str="";
                             str+=objects.toString();
-                            System.out.println("看這裡"+str);*/
+                            System.out.println("看這裡"+str);
                             if (userlist.size() > shop_amount)
 
                                 userlist.clear();
@@ -207,7 +214,7 @@ public class HomeFragment extends Fragment {
             });
         }
 
-    }
+    }*/
 
 
 }

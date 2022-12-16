@@ -24,8 +24,11 @@ import com.parse.Parse;
 import com.parse.ParseObject;
 import com.example.kinmenfoodmap.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements LocationListener {
     private static final int PERMISSION_REQUEST_GPS = 101;
+    public static ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
     private LocationManager lc;
 
     ActivityMainBinding binding;
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             switch (item.getItemId())
             {
                 case R.id.item1:
+                    System.out.println("還是直接看這裡吧");
                     replaceFragment(new HomeFragment());
                     break;
                 case  R.id.item2:

@@ -17,6 +17,7 @@ public class log_in_new extends AppCompatActivity {
 
     private EditText txtAccount;
     private EditText txtPassword;
+    private String acc = "", pass = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +38,28 @@ public class log_in_new extends AppCompatActivity {
         query.whereEqualTo("username", txtAccount);
 
         query.getFirstInBackground(new GetCallback<ParseObject>() {
-            public void done(ParseObject player, ParseException e) {
-                if (e == null) {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                if (e==null){
                     System.out.println("ok:");
-                    String response="", lat = "", lng = "";
-                    response += player.getString("shopName");
-                    response += "\n";
-                } else {
+                    acc += object.getString("user_name");
+                    pass += object.getString("hash_pass");
+                }
+                else {
                     System.out.println("error");
                 }
             }
+
         });
+        if (txtAccount.getText().toString() != acc){
+            System.out.println("account is null");
+        }
+        else if(txtPassword.getText().toString() != pass){
+            System.out.println("password is wrong");
+        }
+        else if (txtAccount.getText().toString() == acc && txtPassword.getText().toString() == pass){
+            System.out.println("welcome" + txtAccount.getText().toString());
+        }
     }
 
 

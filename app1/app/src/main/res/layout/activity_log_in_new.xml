@@ -82,15 +82,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="#FF0505"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="470dp" />
-
     <Button
         android:id="@+id/finish"
         android:layout_width="wrap_content"

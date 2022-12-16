@@ -41,7 +41,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.4"
-                android:onClick="onclick"
                 android:text="會員登入" />
 
         </LinearLayout>

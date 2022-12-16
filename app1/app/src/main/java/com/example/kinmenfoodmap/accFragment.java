@@ -38,9 +38,10 @@ public class accFragment extends Fragment {
         Button btn_person = (Button) view.findViewById(R.id.btn_person);
         Button btn_discount = (Button) view.findViewById(R.id.btn_discount);
         Button btn_bug = (Button) view.findViewById(R.id.btn_bug);
-        TextView btn_username = (TextView) view.findViewById(R.id.username);
+        Button btn_user = (Button) view.findViewById(R.id.userbtn);
 
-        btn_username.setOnClickListener(new View.OnClickListener() {
+        btn_user.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 //              跳轉頁面

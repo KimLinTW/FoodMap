@@ -1,6 +1,8 @@
 package com.example.kinmenfoodmap;
 
 
+import android.app.Activity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -54,7 +56,7 @@ public class HomeFragment extends Fragment {
 
     Handler handler = new Handler();
     ProgressDialog progressDialog;
-    int shop_amount = 10;
+    int shop_amount = 11;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -122,6 +124,7 @@ public class HomeFragment extends Fragment {
             }
             if (userlist.size() > shop_amount){
                 userlist.subList(0,shop_amount);
+                System.out.println("重整user list");
             }
         }
 
@@ -164,13 +167,14 @@ public class HomeFragment extends Fragment {
                                         if (e == null) {
                                             String shopName = result.getString("shopName");
 
-                                            String address = result.getString("address");
+                            String address = result.getString("address");
                                            // String menu = result.getString("ShopPicture");
                                             //System.out.println("感覺在這裡過不了"+menu);
                                             System.out.println("get shop:" + shopName);
 
-                                              userlist.add(new HomeListMapping("https://i.imgur.com/bLuqfnQ.jpg",shopName,address));
-                                           // userlist.add(new HomeListMapping(shopName,address));
+
+                                            //  userlist.add(new HomeListMapping("https://i.imgur.com/bLuqfnQ.jpg",shopName,address));
+                                            userlist.add(new HomeListMapping(shopName,address));
 
 
                                         }
@@ -275,4 +279,6 @@ public class HomeFragment extends Fragment {
 
 
 }
+
+//https://stackoverflow.com/questions/313
 

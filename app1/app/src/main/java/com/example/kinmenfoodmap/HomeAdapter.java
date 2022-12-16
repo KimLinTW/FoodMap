@@ -3,13 +3,17 @@ package com.example.kinmenfoodmap;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -30,12 +34,15 @@ public class HomeAdapter extends ArrayAdapter<HomeListMapping> {
         //找到data，並在View上設定正確的data
         HomeListMapping currentName = getItem(position);
         //用來接照片的網址
-
-       // ((UrlImageView)findViewById(R.id.thumbnail)).setImageUrl("http://foo.bar.png");
+        ImageView shopimage_view =listItemView.findViewById(R.id.shop_imageView);
+        Picasso.get().load("http://foo.bar.png").into(shopimage_view);
+        shopimage_view.setImageURI(Uri.parse("test.png"));//("http://foo.bar.png");
+        // ((UrlImageView)findViewById(R.id.thumbnail)).setImageUrl("http://foo.bar.png");
        // TextView shopimage_view = listItemView.findViewById(R.id.shop_imageView);
         //shopimage_view.setText(currentName.getmPictueurl());
 
         //用來接商店名稱
+
         TextView name_view = listItemView.findViewById(R.id.name_view);
         name_view.setText(currentName.getmName());
 

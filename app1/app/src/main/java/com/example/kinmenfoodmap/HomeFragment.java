@@ -160,8 +160,8 @@ public class HomeFragment extends Fragment {
                                             //System.out.println("感覺在這裡過不了"+menu);
                                             System.out.println("get shop:" + shopName);
 
-                                            //  userlist.add(new HomeListMapping("https://i.imgur.com/bLuqfnQ.jpg",shopName,address));
-                                            userlist.add(new HomeListMapping(shopName,address));
+                                              userlist.add(new HomeListMapping("https://i.imgur.com/bLuqfnQ.jpg",shopName,address));
+                                           // userlist.add(new HomeListMapping(shopName,address));
 
                                         }
                                         // Do something with result

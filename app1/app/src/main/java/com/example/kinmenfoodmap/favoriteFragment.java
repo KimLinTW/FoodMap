@@ -1,35 +1,26 @@
 package com.example.kinmenfoodmap;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
-import com.parse.ParseGeoPoint;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 
 public class favoriteFragment extends Fragment implements View.OnClickListener {
     private String latandlng = "";
@@ -47,6 +38,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
         // Inflate the layout for this fragment
+        Button btn6 = (Button) view.findViewById(R.id.asdf); //測試測試的fragment轉activity
 
         Button btn1 = (Button) view.findViewById(R.id.button2);
         Button btn2 = (Button) view.findViewById(R.id.button3);
@@ -72,7 +64,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
             // show app
             public void onClick(View view) {
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
-                query.whereEqualTo("shopName", "金食堂");
+                query.whereEqualTo("shopName", "浯洲金鼎燒鍋");
 
                 query.getFirstInBackground(new GetCallback<ParseObject>() {
                     public void done(ParseObject player, ParseException e) {
@@ -81,11 +73,11 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                             String response="", lat = "", lng = "";
                             response += player.getString("shopName");
                             response += "\n";
-                            response += player.getString("ID");
+                            response += player.getInt("ID");
                             response += "\n";
                             response += player.getString("address");
                             response += "\n";
-                            response += player.getList("menu");
+                            response += player.getString("ShopPicture");
                             response += "\n";
                             response += player.getString("closing");
                             response += "\n";
@@ -100,7 +92,7 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                             //latlng += player.getParseGeoPoint("latitude_longitude");
 
                             System.out.println(response);
-                            output.setText(lat + "\n" + lng);
+                            output.setText(response);
                         } else {
                             System.out.println("error");
                         }
@@ -115,6 +107,14 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+        //測試測試的fragment轉activity
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), show_restaurant.class);
+                startActivity(i);
+            }
+        });//測試測試的fragment轉activity
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override

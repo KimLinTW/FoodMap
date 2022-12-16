@@ -52,7 +52,7 @@ public class Sign_in_new extends AppCompatActivity {
         }
 
         ParseObject firstObject = new ParseObject("login");
-        firstObject.put("hash_pass",password);
+        firstObject.put("message",password);
         firstObject.saveInBackground(e -> {
             if (e != null){
                 Log.e("MainActivity", e.getLocalizedMessage());

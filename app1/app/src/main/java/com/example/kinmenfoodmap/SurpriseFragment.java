@@ -31,7 +31,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-public class favoriteFragment extends Fragment implements View.OnClickListener {
+public class SurpriseFragment extends Fragment implements View.OnClickListener {
     private String latandlng = "";
 
     @Override

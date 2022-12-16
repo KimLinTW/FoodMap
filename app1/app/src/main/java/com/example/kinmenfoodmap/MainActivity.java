@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -27,6 +29,8 @@ import com.example.kinmenfoodmap.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity implements LocationListener {
     private static final int PERMISSION_REQUEST_GPS = 101;
     private LocationManager lc;
+    private Double lat = 0.0;
+    private Double lng = 0.0;
 
     ActivityMainBinding binding;
     @Override
@@ -113,12 +117,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
-        double lat, lng;
         if(location != null){
             lat = location.getLatitude();
             lng = location.getLongitude();
         }
+
     }
+
 }
 
 // 到這邊 分配工作

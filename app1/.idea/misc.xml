@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android design/FoodMap/app1/app/src/main/res/layout/activity_log_in_new.xml" value="0.264" />
         <entry key="..\:/Android design/FoodMap/app1/app/src/main/res/layout/activity_main.xml" value="0.17980072463768115" />
-        <entry key="..\:/Android design/FoodMap/app1/app/src/main/res/layout/fragment_account.xml" value="0.17980072463768115" />
+        <entry key="..\:/Android design/FoodMap/app1/app/src/main/res/layout/activity_sign_in_new.xml" value="0.19384057971014493" />
+        <entry key="..\:/Android design/FoodMap/app1/app/src/main/res/layout/activity_sign_up.xml" value="0.19384057971014493" />
+        <entry key="..\:/Android design/FoodMap/app1/app/src/main/res/layout/fragment_account.xml" value="0.264" />
+        <entry key="..\:/Android design/FoodMap/app1/app/src/main/res/layout/fragment_accountpage.xml" value="0.20729166666666668" />
         <entry key="..\:/Android design/FoodMap/app1/app/src/main/res/layout/fragment_favorite.xml" value="0.17980072463768115" />
         <entry key="..\:/Android design/FoodMap/app1/app/src/main/res/layout/fragment_home.xml" value="0.17980072463768115" />
         <entry key="..\:/Android design/FoodMap/app1/app/src/main/res/layout/fragment_search.xml" value="0.17980072463768115" />
@@ -22,7 +26,6 @@
         <entry key="..\:/Users/user/Desktop/androidAPP_JAVA/repo/FoodMap/app1/app/src/main/res/layout/activity_good.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/user/Desktop/androidAPP_JAVA/repo/FoodMap/app1/app/src/main/res/layout/activity_main.xml" value="0.3578125" />
         <entry key="..\:/Users/user/Desktop/androidAPP_JAVA/repo/FoodMap/app1/app/src/main/res/layout/activity_modify_personal_info.xml" value="0.33" />
-        <entry key="..\:/Users/user/Desktop/androidAPP_JAVA/repo/FoodMap/app1/app/src/main/res/layout/activity_sign_in_new.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/user/Desktop/androidAPP_JAVA/repo/FoodMap/app1/app/src/main/res/layout/fragment_acc.xml" value="0.33" />
         <entry key="..\:/Users/user/Desktop/androidAPP_JAVA/repo/FoodMap/app1/app/src/main/res/layout/fragment_account.xml" value="0.3734375" />
         <entry key="..\:/Users/user/Desktop/androidAPP_JAVA/repo/FoodMap/app1/app/src/main/res/layout/fragment_accountpage.xml" value="0.3619791666666667" />
@@ -30,16 +33,14 @@
         <entry key="..\:/Users/user/Desktop/androidAPP_JAVA/repo/FoodMap/app1/app/src/main/res/layout/fragment_home.xml" value="0.3734375" />
         <entry key="..\:/Users/user/Desktop/androidAPP_JAVA/repo/FoodMap/app1/app/src/main/res/layout/fragment_search.xml" value="0.3734375" />
         <entry key="..\:/Users/user/Desktop/androidAPP_JAVA/repo/FoodMap/app1/app/src/main/res/layout/fragment_surprise.xml" value="0.3734375" />
-        <entry key="app/src/main/res/layout/acc_record.xml" value="0.1" />
         <entry key="app/src/main/res/layout/account.xml" value="0.22146739130434784" />
         <entry key="app/src/main/res/layout/activity_good.xml" value="0.11574074074074074" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4166666666666667" />
         <entry key="app/src/main/res/layout/favorite.xml" value="0.22146739130434784" />
         <entry key="app/src/main/res/layout/fragment_acc.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.17844202898550723" />
-        <entry key="app/src/main/res/layout/fragment_accountpage.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_favorite.xml" value="0.17844202898550723" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.17484283447265625" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.162841796875" />
         <entry key="app/src/main/res/layout/fragment_surprise.xml" value="0.17844202898550723" />
         <entry key="app/src/main/res/layout/search.xml" value="0.22146739130434784" />

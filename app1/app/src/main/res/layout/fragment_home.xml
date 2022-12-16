@@ -10,6 +10,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <Button
@@ -55,6 +56,7 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <!-- 我先把首頁註解掉，之後等資料進來後再增加
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout4"

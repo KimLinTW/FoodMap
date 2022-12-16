@@ -7,8 +7,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+<!--加上usesCleartextTraffic是為了讓HomePage的http讀到資料 -->
     <application
+        android:usesCleartextTraffic="true"
         android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"

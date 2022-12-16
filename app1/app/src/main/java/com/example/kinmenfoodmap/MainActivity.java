@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new HomeFragment());
+        replaceFragment(new SurpriseFragment());
 
         binding.menu.setOnItemSelectedListener(item -> {
 

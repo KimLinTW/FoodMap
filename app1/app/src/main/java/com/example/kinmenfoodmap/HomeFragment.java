@@ -59,7 +59,9 @@ public class HomeFragment extends Fragment {
 
 
 
+
    public static int threadflag = 0;
+
     int viewflag = 0;
 
     @Override
@@ -82,11 +84,13 @@ public class HomeFragment extends Fragment {
         }
 
 
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 System.out.println("看看"+userlist.size());
                 listAdapter.notifyDataSetChanged();
+
             }
         });
 
@@ -96,7 +100,9 @@ public class HomeFragment extends Fragment {
 
 
 
+
     /*class thread2 extends Thread{
+
 
         @Override
         public void run() {
@@ -120,11 +126,15 @@ public class HomeFragment extends Fragment {
             System.out.println("看看這個list是什麼"+userlist);
 
            // listAdapter.notifyDataSetChanged();
+
            new fetchData().start();
+
 
            // listAdapter.notifyDataSetChanged();
 
         }
+
+
 
 
     }*/
@@ -214,7 +224,10 @@ public class HomeFragment extends Fragment {
             });
         }
 
+
     }*/
+=======
+
 
 
 }

@@ -1,10 +1,12 @@
 package com.example.kinmenfoodmap;
 
+
 import static com.example.kinmenfoodmap.HomeFragment.listAdapter;
 import static com.example.kinmenfoodmap.MainActivity.userlist;
 
 import android.app.ProgressDialog;
 import android.os.Handler;
+
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -13,6 +15,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.net.URL;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,3 +86,4 @@ class fetchData extends Thread{
         }
 
     }
+

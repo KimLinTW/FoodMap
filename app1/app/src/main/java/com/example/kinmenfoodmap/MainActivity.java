@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     private static final int PERMISSION_REQUEST_GPS = 101;
     public static ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
     private LocationManager lc;
+    private Double lat = 0.0;
+    private Double lng = 0.0;
 
     ActivityMainBinding binding;
     @Override
@@ -52,7 +56,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new SurpriseFragment());
+        replaceFragment(new favoriteFragment());
+
 
         binding.menu.setOnItemSelectedListener(item -> {
 
@@ -116,12 +121,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
-        double lat, lng;
         if(location != null){
             lat = location.getLatitude();
             lng = location.getLongitude();
         }
+
     }
+
 }
 
 // 到這邊 分配工作

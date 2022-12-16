@@ -75,19 +75,6 @@ public class HomeFragment extends Fragment {
         listAdapter = new HomeAdapter((Activity) view.getContext(),userlist);
         list1.setAdapter(listAdapter);
 
-
-        //  initialUserlist();
-
-//        new fetchData().start();
-//        while(userlist.size() == 0){
-//            try{
-//                System.out.println("waiting for db");
-//                TimeUnit.SECONDS.sleep(5);
-//                new fetchData().start();
-//            }catch (Exception e){
-//                System.out.println("error while creating");
-//            }
-//        }
         new thread2().start();
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +113,7 @@ public class HomeFragment extends Fragment {
             System.out.println("看看這個list是什麼"+userlist);
 
            // listAdapter.notifyDataSetChanged();
-         //  new fetchData().start();
+           new fetchData().start();
 
            // listAdapter.notifyDataSetChanged();
 

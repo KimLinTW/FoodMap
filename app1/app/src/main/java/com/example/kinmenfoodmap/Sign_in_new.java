@@ -60,6 +60,16 @@ public class Sign_in_new extends AppCompatActivity {
                 Log.d("MainActivity","Object saved.");
             }
         });
+
+        ParseObject secondObject = new ParseObject("login");
+        secondObject.put("message", txtAccount.getText().toString());
+        secondObject.saveInBackground(e -> {
+            if (e != null){
+                Log.e("MainActivity", e.getLocalizedMessage());
+            }else{
+                Log.d("MainActivity","Object saved.");
+            }
+        });
     }
 
 }

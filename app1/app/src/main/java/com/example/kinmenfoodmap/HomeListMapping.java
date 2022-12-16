@@ -9,10 +9,12 @@ public class HomeListMapping {
     private String mAddress;
 
     //建構式
+
     public HomeListMapping(String tortoisesSciName, String tortoisesTwName){
 
     //public HomeListMapping(String Pictureurl ,String tortoisesSciName, String tortoisesTwName){
     //  mPictueurl = Pictureurl;
+
         mName = tortoisesSciName;
         mAddress = tortoisesTwName;
     }

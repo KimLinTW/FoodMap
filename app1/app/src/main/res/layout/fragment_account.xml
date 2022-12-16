@@ -36,14 +36,12 @@
                 android:layout_weight="0.4"
                 tools:src="@tools:sample/avatars" />
 
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="280dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.6"
-                android:gravity="center"
-                android:text="username"
-                android:textSize="24sp" />
+            <Button
+                android:id="@+id/userbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="會員登入" />
 
         </LinearLayout>
 

@@ -11,6 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
+
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@drawable/layout_style">
@@ -31,6 +32,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <Button
@@ -61,7 +63,9 @@
             android:layout_marginTop="696dp"
             android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
+
             app:layout_constraintTop_toTopOf="parent" />
+
 
 
         <!-- 我先把首頁註解掉，之後等資料進來後再增加

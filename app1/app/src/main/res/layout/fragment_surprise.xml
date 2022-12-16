@@ -24,10 +24,11 @@
                     android:id="@+id/Shopimage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0"
+                    app:layout_constraintVertical_bias="0.0"
                     tools:src="@tools:sample/avatars" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -54,6 +55,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="星星:" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
         </LinearLayout>
 
         <ImageView

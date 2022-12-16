@@ -71,7 +71,6 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
             @Override
             // show app
             public void onClick(View view) {
-
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
                 query.whereEqualTo("shopName", "金食堂");
 
@@ -113,7 +112,6 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                 latandlng = output.getText().toString();
                 System.out.println(latandlng);
                 //output.setText(response);
-
             }
         });
 

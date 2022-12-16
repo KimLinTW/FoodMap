@@ -43,7 +43,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
                 android:gravity="center"
-                android:text="username"
+                android:text="登入"
                 android:textSize="24sp" />
 
         </LinearLayout>

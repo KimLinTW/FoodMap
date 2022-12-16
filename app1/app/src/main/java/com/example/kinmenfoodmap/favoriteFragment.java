@@ -95,9 +95,11 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                             response += player.getParseGeoPoint("latitude_longitude");
                             response += "\n";
 
+
                             lat += player.getParseGeoPoint("latitude_longitude").getLatitude();
                             lng += player.getParseGeoPoint("latitude_longitude").getLongitude();
                             //latlng += player.getParseGeoPoint("latitude_longitude");
+
                             System.out.println(response);
                             output.setText(lat + "\n" + lng);
                         } else {
@@ -106,10 +108,12 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                     }
                 });
 
+
                 System.out.println("^^^^^^^^^^^^^^^^^^^^^^");
                 latandlng = output.getText().toString();
                 System.out.println(latandlng);
                 //output.setText(response);
+
             }
         });
 

@@ -1,6 +1,6 @@
 package com.example.kinmenfoodmap;
 
-import android.app.Activity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,10 +46,12 @@ import java.util.concurrent.TimeUnit;
 
 
 public class HomeFragment extends Fragment {
+
     ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
     ActivityMainBinding binding;
   //  ArrayList<String> userlist;
     HomeAdapter listAdapter;
+
     Handler handler = new Handler();
     ProgressDialog progressDialog;
     int shop_amount = 10;
@@ -64,11 +66,13 @@ public class HomeFragment extends Fragment {
         //setContentView(binding.getRoot());
         //items = getActivity().getResources().getString(R.id.userlist);
         userlist = new ArrayList<>();
+
         listAdapter = new HomeAdapter((Activity) view.getContext(),userlist);
         list1.setAdapter(listAdapter);
 
 
         //  initialUserlist();
+
 //        new fetchData().start();
 //        while(userlist.size() == 0){
 //            try{
@@ -95,7 +99,9 @@ public class HomeFragment extends Fragment {
 
     private void initialUserlist() {
 //        userlist = new ArrayList<>();
+
         //listAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.); //.support_simple_spinner_dropdown_item,userlist);
+
         //userlist = new ArrayList<>();
         //System.out.println("init只會有一次吧");
     }
@@ -148,13 +154,16 @@ public class HomeFragment extends Fragment {
                             str+=objects.toString();
                             System.out.println("看這裡"+str);*/
                             if (userlist.size() > shop_amount)
+
                                 userlist.clear();
+
                             for (int k = 0; k < shop_amount; k++) {
                                 ParseObject parseObject = objects.get(k); // Get the object
                                 parseObject.fetchIfNeededInBackground(new GetCallback<ParseObject>() {
                                     public void done(ParseObject result, ParseException e) {
                                         if (e == null) {
                                             String shopName = result.getString("shopName");
+
                                             String address = result.getString("address");
                                            // String menu = result.getString("ShopPicture");
                                             //System.out.println("感覺在這裡過不了"+menu);
@@ -162,6 +171,7 @@ public class HomeFragment extends Fragment {
 
                                               userlist.add(new HomeListMapping("https://i.imgur.com/bLuqfnQ.jpg",shopName,address));
                                            // userlist.add(new HomeListMapping(shopName,address));
+
 
                                         }
                                         // Do something with result
@@ -240,7 +250,9 @@ public class HomeFragment extends Fragment {
 //                e.printStackTrace();
 //            }
             }catch( Exception e){
+
                 System.out.println(e);
+
             }
 
 
@@ -250,9 +262,11 @@ public class HomeFragment extends Fragment {
                     if(progressDialog.isShowing())
                     {
                         progressDialog.dismiss();
+
                         //  System.out.println("看得到嗎嗎嗎？"+listAdapter);
                         listAdapter.notifyDataSetChanged();
                         //   System.out.println("看得到？"+listAdapter);
+
                     }
                 }
             });
@@ -261,4 +275,4 @@ public class HomeFragment extends Fragment {
 
 
 }
-//https://stackoverflow.com/questions/313
+

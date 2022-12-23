@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.squareup.picasso.Picasso;
+//import com.squareup.picasso.Picasso; 有紅線縣 先註解掉
 import java.util.ArrayList;
 
 public class HomeAdapter extends ArrayAdapter<HomeListMapping> {

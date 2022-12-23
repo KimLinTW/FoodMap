@@ -35,16 +35,17 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <!--        <ExpandableListView -->
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="144dp"
-            android:layout_marginTop="501dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="4dp"
             android:text="Update"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-             />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ListView
             android:id="@+id/userlist"
@@ -59,13 +60,22 @@
             android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="300dp"
-            android:layout_marginTop="696dp"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="308dp"
+            android:layout_marginBottom="48dp"
+            android:text="hello?"
 
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <Button
+            android:id="@+id/testbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="207dp"
+            android:layout_marginBottom="139dp"
+            android:text="123"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
         <!-- 我先把首頁註解掉，之後等資料進來後再增加

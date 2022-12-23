@@ -82,17 +82,20 @@ public class log_in_new extends AppCompatActivity {
 
                     if (pass.equals(passres)){
                         System.out.println("登入成功");
-//            Toast.makeText(null, "登入成功", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(this, "登入成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"登入成功",Toast.LENGTH_SHORT).show();
                     }
                     else{
                         System.out.println("密碼錯誤");
-//            Toast.makeText(null, "密碼錯誤", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(this, "密碼錯誤", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"密碼錯誤",Toast.LENGTH_SHORT).show();
+                        System.out.println("92");
                     }
-                }
-                else {
+                }else {
                     System.out.println("error");
                     System.out.println("帳號錯誤");
 //                    Toast.makeText(null, "帳號錯誤", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"帳號錯誤",Toast.LENGTH_SHORT).show();
                 }
             }
 

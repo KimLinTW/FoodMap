@@ -75,6 +75,7 @@ public class HomeFragment extends Fragment {
 
 
         Button btn1 = (Button) view.findViewById(R.id.button);
+        Button btn_add = (Button) view.findViewById(R.id.add_shop_btn);
         ListView list1 = (ListView)view.findViewById(R.id.userlist);
 //        ExpandableListView list1 = (ExpandableListView) view.findViewById(R.id.userlist);
 
@@ -98,48 +99,53 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 System.out.println("看看"+userlist.size());
                 listAdapter.notifyDataSetChanged();
-
             }
         });
+
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), add_store.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
 
         // 獲取 ListView 的引用
         ListView listView = (ListView) view.findViewById(R.id.userlist);
-
 // 設置點擊事件的監聽器
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                System.out.println(parent.getItemAtPosition(position).toString());
-                // 获取点击的项目数据
+                View test_view = inflater.inflate(R.layout.fragment_home,null);
 //                String item = (String) parent.getItemAtPosition(position).toString();
-                String item =         parent.getItemAtPosition(position).toString();
-                System.out.println("v");
-                System.out.println(item.toString());
-                System.out.println("^");
-                // 显示 Toast 消息
-                Toast.makeText(getContext(), "You clicked on: " + item, Toast.LENGTH_SHORT).show();
-                TextView textView = (TextView) view.findViewById(R.id.textView19);
-                Button test = (Button) view.findViewById(R.id.testbtn);
-                System.out.println("V btn object");
-                System.out.println(test);
-//                textView.setText("123");
+//                System.out.println(item.toString());
+                TextView textView19 = (TextView) test_view.findViewById(R.id.textView19);
+                System.out.println(textView19);
+                String shop_name = userlist.get(position).getmName();
+                Toast.makeText(getContext(), "You clicked on: " + shop_name, Toast.LENGTH_SHORT).show();
+                textView19.setText(shop_name);
+                textView19.setText("123");
+                System.out.println("19:");
+                System.out.println(textView19.getText().toString());
+                TextView textView2 = (TextView) view.findViewById(R.id.textView19); //null
+                System.out.println(textView2);
+
             }
 
-
         });
+        TextView textView2 = (TextView) view.findViewById(R.id.textView19);
+        System.out.println(textView2);
 
 
-        Button test = (Button) view.findViewById(R.id.testbtn);
-        System.out.println("true btn object");
-        System.out.println(test);
-        test.setText("1");
 
 
 //        ExpandableListView listView = (ExpandableListView) view.findViewById(R.id.userlist);
-//
-//
 //
 //
 //        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
@@ -153,12 +159,6 @@ public class HomeFragment extends Fragment {
 //                return true;
 //            }
 //        });
-
-
-
-
-
-
 
         return view;
     }

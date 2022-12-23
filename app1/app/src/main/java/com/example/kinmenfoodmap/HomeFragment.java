@@ -16,10 +16,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kinmenfoodmap.databinding.ActivityMainBinding;
 import com.parse.FindCallback;
@@ -53,6 +56,8 @@ public class HomeFragment extends Fragment {
 
 
 
+
+
     ActivityMainBinding binding;
   //  ArrayList<String> userlist;
    public static HomeAdapter listAdapter;
@@ -71,6 +76,8 @@ public class HomeFragment extends Fragment {
 
         Button btn1 = (Button) view.findViewById(R.id.button);
         ListView list1 = (ListView)view.findViewById(R.id.userlist);
+//        ExpandableListView list1 = (ExpandableListView) view.findViewById(R.id.userlist);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         //setContentView(binding.getRoot());
         //items = getActivity().getResources().getString(R.id.userlist);
@@ -94,6 +101,63 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+
+
+        // 獲取 ListView 的引用
+        ListView listView = (ListView) view.findViewById(R.id.userlist);
+
+// 設置點擊事件的監聽器
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                System.out.println(parent.getItemAtPosition(position).toString());
+                // 获取点击的项目数据
+//                String item = (String) parent.getItemAtPosition(position).toString();
+                String item =         parent.getItemAtPosition(position).toString();
+                System.out.println("v");
+                System.out.println(item.toString());
+                System.out.println("^");
+                // 显示 Toast 消息
+                Toast.makeText(getContext(), "You clicked on: " + item, Toast.LENGTH_SHORT).show();
+                TextView textView = (TextView) view.findViewById(R.id.textView19);
+                Button test = (Button) view.findViewById(R.id.testbtn);
+                System.out.println("V btn object");
+                System.out.println(test);
+//                textView.setText("123");
+            }
+
+
+        });
+
+
+        Button test = (Button) view.findViewById(R.id.testbtn);
+        System.out.println("true btn object");
+        System.out.println(test);
+        test.setText("1");
+
+
+//        ExpandableListView listView = (ExpandableListView) view.findViewById(R.id.userlist);
+//
+//
+//
+//
+//        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+//            @Override
+//            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) { //childPosition代表著要接收的數組的列數
+//                if (groupPosition==0){//groupPosition代表著要接收的數組的行數
+//                    System.out.println("113");
+//                }else if (groupPosition==1){
+//                    System.out.println("115");
+//                }
+//                return true;
+//            }
+//        });
+
+
+
+
+
 
 
         return view;

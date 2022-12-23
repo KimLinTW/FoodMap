@@ -19,6 +19,7 @@ public class add_store extends AppCompatActivity {
         output.setText("新增成功");
     }
 
+
     public void On_Click_finish(View view) {
         finish();
     }

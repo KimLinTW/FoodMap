@@ -37,7 +37,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class SurpriseFragment extends Fragment {
-// TODO: Rename and change types of parameters
+    // TODO: Rename and change types of parameters
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;

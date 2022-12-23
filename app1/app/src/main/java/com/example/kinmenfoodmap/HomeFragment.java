@@ -62,37 +62,37 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button btn1 = (Button) view.findViewById(R.id.button);
-        ListView list1 = (ListView)view.findViewById(R.id.userlist);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        //setContentView(binding.getRoot());
-        //items = getActivity().getResources().getString(R.id.userlist);
-        userlist = new ArrayList<>();
-
-        listAdapter = new HomeAdapter((Activity) view.getContext(),userlist);
-        list1.setAdapter(listAdapter);
-
-
-        //  initialUserlist();
-
-//        new fetchData().start();
-//        while(userlist.size() == 0){
-//            try{
-//                System.out.println("waiting for db");
-//                TimeUnit.SECONDS.sleep(5);
+//        Button btn1 = (Button) view.findViewById(R.id.button);
+//        ListView list1 = (ListView)view.findViewById(R.id.userlist);
+//        binding = ActivityMainBinding.inflate(getLayoutInflater());
+//        //setContentView(binding.getRoot());
+//        //items = getActivity().getResources().getString(R.id.userlist);
+//        userlist = new ArrayList<>();
+//
+//        listAdapter = new HomeAdapter((Activity) view.getContext(),userlist);
+//        list1.setAdapter(listAdapter);
+//
+//
+//        //  initialUserlist();
+//
+////        new fetchData().start();
+////        while(userlist.size() == 0){
+////            try{
+////                System.out.println("waiting for db");
+////                TimeUnit.SECONDS.sleep(5);
+////                new fetchData().start();
+////            }catch (Exception e){
+////                System.out.println("error while creating");
+////            }
+////        }
+//
+//        new thread2().start();
+//        btn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
 //                new fetchData().start();
-//            }catch (Exception e){
-//                System.out.println("error while creating");
 //            }
-//        }
-
-        new thread2().start();
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new fetchData().start();
-            }
-        });
+//        });
 
 
         return view;

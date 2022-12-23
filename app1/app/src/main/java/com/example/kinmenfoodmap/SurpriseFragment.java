@@ -1,14 +1,20 @@
 package com.example.kinmenfoodmap;
 
+
 import android.content.Intent;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,17 +27,26 @@ import com.parse.ParseQuery;
 
 import java.text.BreakIterator;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SurpriseFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class SurpriseFragment extends Fragment {
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -75,6 +90,7 @@ public class SurpriseFragment extends Fragment {
         }
 
 
+
     }
 
     @Override
@@ -86,6 +102,7 @@ public class SurpriseFragment extends Fragment {
         output = (TextView) view.findViewById(R.id.textView20);
         supbox_btn.setOnClickListener(new View.OnClickListener() {
             @Override
+            // add shop
             public void onClick(View view) {
                 System.out.println("btn ok");
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");

@@ -68,6 +68,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+
         Button btn1 = (Button) view.findViewById(R.id.button);
         ListView list1 = (ListView)view.findViewById(R.id.userlist);
         binding = ActivityMainBinding.inflate(getLayoutInflater());

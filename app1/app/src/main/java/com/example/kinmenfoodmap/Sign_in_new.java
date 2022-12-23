@@ -40,7 +40,9 @@ public class Sign_in_new extends AppCompatActivity {
         }
         byte[] password = new byte[0];
         try {
-            password = txtPassword.getText().toString().getBytes("UTF-8");
+            String pass;
+            pass = txtPassword.getText().toString();
+            password = pass.getBytes("UTF-8");
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
@@ -50,9 +52,11 @@ public class Sign_in_new extends AppCompatActivity {
         for (byte b : password) {
             sb.append(String.format("%02x", b));
         }
-
+        System.out.println(sb);
+        String sign = sb.toString();
         ParseObject firstObject = new ParseObject("login");
-        firstObject.put("message",password);
+        firstObject.put("user_name", txtAccount.getText().toString());
+        firstObject.put("hash_pass",sign);
         firstObject.saveInBackground(e -> {
             if (e != null){
                 Log.e("MainActivity", e.getLocalizedMessage());
@@ -60,10 +64,9 @@ public class Sign_in_new extends AppCompatActivity {
                 Log.d("MainActivity","Object saved.");
             }
         });
-
-        ParseObject secondObject = new ParseObject("login");
-        secondObject.put("message", txtAccount.getText().toString());
-        secondObject.saveInBackground(e -> {
+        firstObject = new ParseObject("FirstClass");
+        firstObject.put("message","Hey !");
+        firstObject.saveInBackground(e -> {
             if (e != null){
                 Log.e("MainActivity", e.getLocalizedMessage());
             }else{
@@ -71,5 +74,4 @@ public class Sign_in_new extends AppCompatActivity {
             }
         });
     }
-
 }

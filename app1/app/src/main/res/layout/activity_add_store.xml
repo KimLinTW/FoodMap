@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="On_Click_finish"
     tools:context=".add_store">
 
     <TextView
@@ -60,7 +59,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="136dp"
         android:ems="10"
-        android:inputType="number|textPersonName"
+        android:inputType="textPersonName"
         android:text="Name"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="parent" />
@@ -70,9 +69,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:ems="10"
-        android:inputType="number|textPersonName"
+        android:inputType="textPersonName"
         android:text="Name"
         app:layout_constraintStart_toEndOf="@+id/textView22"
         app:layout_constraintTop_toBottomOf="@+id/shopname" />
@@ -83,4 +82,25 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="205dp"
         tools:layout_editor_absoluteY="432dp" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:text="電話:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="35dp"
+        android:ems="10"
+        android:inputType="number|textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

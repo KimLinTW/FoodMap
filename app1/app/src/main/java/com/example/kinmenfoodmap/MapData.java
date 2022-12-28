@@ -1,5 +1,7 @@
 package com.example.kinmenfoodmap;
 
+import static com.example.kinmenfoodmap.MainActivity.list;
+
 import android.app.ProgressDialog;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -13,9 +15,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
+//過渡期的檔案,沒用了
 public class MapData {
-    ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
+    // ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
     // 台北101
     public static final LatLng POSITION_TAIPEI101 = new LatLng(25.033611, 121.565000);
     // 台北火車站
@@ -29,13 +31,14 @@ public class MapData {
 
     public static ArrayList<LatLng> getPositions() {
 
-        ArrayList<LatLng> list = new ArrayList<>();
-        list.add(POSITION_TAIPEI101);
-        list.add(POSITION_TAIPEI_TRAIN_STATION);
-        list.add(POSITION_NATIONAL_TAIWAN_MUSEUM);
-        list.add(POSITION_KENTING);
-        list.add(POSITION_ZINTUN);
-        System.out.println("看看list"+list);
+
+
+        // list.add(POSITION_TAIPEI101);
+        //list.add(POSITION_TAIPEI_TRAIN_STATION);
+        //list.add(POSITION_NATIONAL_TAIWAN_MUSEUM);
+        //list.add(POSITION_KENTING);
+        //list.add(POSITION_ZINTUN);
+        //System.out.println("看看list"+list);
         return list;
     }
 

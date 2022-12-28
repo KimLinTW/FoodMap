@@ -19,7 +19,9 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.lang.reflect.Array;
 import java.text.BreakIterator;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,13 +39,14 @@ public class SurpriseFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private TextView output;
-
+    private String name, shopname;
     private double distance = 0.0;
     private double Latitude1 = 25.298218036200446;
     private double Longitude1 = 121.56814583830808;
     private double Latitude2 = 21.905662893203562;
     private double Longitude2 = 120.85092391581581;
 
+    private double lat = 0.0, lng = 0.0, gap = Integer.MAX_VALUE;
     public SurpriseFragment() {
         // Required empty public constructor
     }
@@ -88,51 +91,53 @@ public class SurpriseFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 System.out.println("btn ok");
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
-                query.whereEqualTo("shopName", "金食堂");
+                for (int n = 1; n <= 11; n++){
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
+                    query.whereEqualTo("ID",n);
 
-                System.out.println(query);
-                query.getFirstInBackground(new GetCallback<ParseObject>() {
-                    public void done(ParseObject player, ParseException e) {
-                        if (e == null) {
-                            System.out.println("ok:");
-                            String response="";// lat = "", lng = "";
-                            response += player.getString("shopName");
-                            response += "\n";
-                            response += player.getString("ID");
-                            response += "\n";
-                            response += player.getString("address");
-                            response += "\n";
-                            response += player.getList("menu");
-                            response += "\n";
-                            response += player.getString("closing");
-                            response += "\n";
-                            response += player.getString("business");
-                            response += "\n";
-                            response += player.getParseGeoPoint("latitude_longitude");
-                            response += "\n";
+                    System.out.println(query);
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(ParseObject player, ParseException e) {
+                            if (e == null) {
+                                System.out.println("ok:");
 
-                            //lat += player.getParseGeoPoint("latitude_longitude").getLatitude();
-                            //lng += player.getParseGeoPoint("latitude_longitude").getLongitude();
-                            //latlng += player.getParseGeoPoint("latitude_longitude");
+                                name = player.getString("shopName");
+                                System.out.println(name);
+                                lat = player.getParseGeoPoint("latitude_longitude").getLatitude();
+                                lng = player.getParseGeoPoint("latitude_longitude").getLongitude();
 
-                            System.out.println(response);
-                            output.setText(response);
-                        } else {
-                            System.out.println("error");
+                                double theta = Longitude1 - lng;
+                                double distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
+                                        Math.sin(Latitude1 * (Math.PI/180)) * Math.sin(lat * (Math.PI/180)) +
+                                                Math.cos(Latitude1 * (Math.PI/180)) * Math.cos(lat * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
+                                );
+                                double kilodistance = distance / 0.6214;
+
+                                System.out.println("距離: " + kilodistance);
+
+                                if (kilodistance <= gap){
+                                    gap = kilodistance;
+                                    shopname = name;
+                                }
+                                System.out.println("最近店家:　" +shopname + "/" + gap);
+                            }
+                            else {
+                                System.out.println("error");
+                            }
+
                         }
+                    });
+                }
 
-                    }
-                });
                 //經緯座標距離運算
-                double theta = Longitude1 - Longitude2;
-                double distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
-                        Math.sin(Latitude1 * (Math.PI/180)) * Math.sin(Latitude2 * (Math.PI/180)) +
-                                Math.cos(Latitude1 * (Math.PI/180)) * Math.cos(Latitude2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
-                );
-                double kilodistance = distance / 0.6214;
-
-                System.out.println("距離: " + kilodistance);
+//                double theta = Longitude1 - Longitude2;
+//                double distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
+//                        Math.sin(Latitude1 * (Math.PI/180)) * Math.sin(Latitude2 * (Math.PI/180)) +
+//                                Math.cos(Latitude1 * (Math.PI/180)) * Math.cos(Latitude2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
+//                );
+//                double kilodistance = distance / 0.6214;
+//
+//                System.out.println("距離: " + kilodistance);
             }
         });
         return view;

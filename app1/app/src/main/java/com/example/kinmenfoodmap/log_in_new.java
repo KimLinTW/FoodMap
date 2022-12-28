@@ -41,6 +41,11 @@ public class log_in_new extends AppCompatActivity {
     }
 
     public void logbtn(View view){
+        acc = "";
+        pass = "";
+        passres = "";
+        StringBuilder sb = new StringBuilder();
+
         acc = txtAccount.getText().toString();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("login");
         query.whereEqualTo("user_name", acc);
@@ -51,7 +56,7 @@ public class log_in_new extends AppCompatActivity {
             public void done(ParseObject object, ParseException n) {
                 if (n==null){
                     System.out.println("ok:");
-                    passres += object.getString("hash_pass");
+                    passres = object.getString("hash_pass");
                     System.out.println(passres);
 
                     MessageDigest md = null;
@@ -70,32 +75,28 @@ public class log_in_new extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     password = md.digest(password);
-                    StringBuilder sb = new StringBuilder();
+
                     for (byte b : password) {
                         sb.append(String.format("%02x", b));
                     }
                     pass = sb.toString();
-                    System.out.println("!"+pass + "!");
-                    System.out.println(pass.getClass().getSimpleName());
-                    System.out.println("!"+ passres + "!");
-                    System.out.println(passres.getClass().getSimpleName());
-
                     if (pass.equals(passres)){
                         System.out.println("登入成功");
-//            Toast.makeText(null, "登入成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"登入成功 歡迎" + acc,Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                     else{
                         System.out.println("密碼錯誤");
-//            Toast.makeText(null, "密碼錯誤", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"密碼錯誤",Toast.LENGTH_SHORT).show();
+                        System.out.println(sb);
                     }
                 }
                 else {
                     System.out.println("error");
                     System.out.println("帳號錯誤");
-//                    Toast.makeText(null, "帳號錯誤", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"帳號錯誤",Toast.LENGTH_SHORT).show();
                 }
             }
-
         });
     }
     public void btn_clk(View view){

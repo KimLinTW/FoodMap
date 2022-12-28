@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.ParseObject;
 
@@ -62,16 +63,10 @@ public class Sign_in_new extends AppCompatActivity {
                 Log.e("MainActivity", e.getLocalizedMessage());
             }else{
                 Log.d("MainActivity","Object saved.");
+                Toast.makeText(getApplicationContext(),"註冊成功",Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
-        firstObject = new ParseObject("FirstClass");
-        firstObject.put("message","Hey !");
-        firstObject.saveInBackground(e -> {
-            if (e != null){
-                Log.e("MainActivity", e.getLocalizedMessage());
-            }else{
-                Log.d("MainActivity","Object saved.");
-            }
-        });
+
     }
 }

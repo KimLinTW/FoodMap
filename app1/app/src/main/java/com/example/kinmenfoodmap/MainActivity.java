@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public static ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
     public  static  ArrayList<LatLng> list = new ArrayList<>();
     public  static  ArrayList<String> MapName = new ArrayList<>();
-
     //public  static
     private LocationManager lc;
     private Double lat = 0.0;
@@ -37,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         //GPS位置取得
         lc = (LocationManager) getSystemService(LOCATION_SERVICE);
         if(!lc.isProviderEnabled(LocationManager.GPS_PROVIDER)){

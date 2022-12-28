@@ -4,7 +4,7 @@ package com.example.kinmenfoodmap;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -35,16 +35,6 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
-
-
-import com.parse.Parse;
-import com.parse.ParseObject;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SurpriseFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 
 public class SurpriseFragment extends Fragment {
     // TODO: Rename and change types of parameters
@@ -90,6 +80,8 @@ public class SurpriseFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
 
     }
 
@@ -154,6 +146,4 @@ public class SurpriseFragment extends Fragment {
         });
         return view;
     }
-
 }
-

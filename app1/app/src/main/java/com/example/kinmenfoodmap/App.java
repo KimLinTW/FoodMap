@@ -1,13 +1,11 @@
 package com.example.kinmenfoodmap;
 
 import android.app.Application;
-
 import android.widget.Toast;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
 
 public class App extends Application {
     @Override
@@ -19,7 +17,6 @@ public class App extends Application {
                 .server(getString(R.string.back4app_server_url))
                 .build());
     }
-
     public void readObject() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("MyCustomClassName");
 
@@ -35,6 +32,5 @@ public class App extends Application {
             }
         });
     }
-
 }
 

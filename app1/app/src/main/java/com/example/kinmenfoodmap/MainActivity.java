@@ -6,16 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-<<<<<<< HEAD
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-
-=======
 
 import android.Manifest;
-import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -25,12 +17,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
-import android.widget.TextView;
 
-
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
-import com.parse.Parse;
-import com.parse.ParseObject;
+import com.google.android.gms.maps.model.LatLng;
 import com.example.kinmenfoodmap.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
@@ -38,6 +26,10 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements LocationListener {
     private static final int PERMISSION_REQUEST_GPS = 101;
     public static ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
+    public  static  ArrayList<LatLng> list = new ArrayList<>();
+    public  static  ArrayList<String> MapName = new ArrayList<>();
+
+    //public  static
     private LocationManager lc;
     private Double lat = 0.0;
     private Double lng = 0.0;
@@ -71,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             switch (item.getItemId())
             {
                 case R.id.item1:
-                    System.out.println("還是直接看這裡吧");
                     replaceFragment(new HomeFragment());
                     break;
                 case  R.id.item2:
@@ -88,13 +79,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                     break;
 
             }
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
-        return  true;
+            return  true;
         });
     }
 
@@ -107,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     @Override //詢問GPS使用權限
     public void onRequestPermissionsResult(int requestCode,
-        @NonNull String[] permissions, @NonNull int[] grantResults) {
+                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(requestCode == PERMISSION_REQUEST_GPS){}
     }

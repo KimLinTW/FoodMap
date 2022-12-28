@@ -11,19 +11,11 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-<<<<<<< HEAD
-=======
 import android.os.Handler;
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
-import android.widget.TextView;
-
-import com.parse.ParseObject;
-=======
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -59,7 +51,6 @@ import java.util.List;
 import javax.net.ssl.HttpsURLConnection;
 import java.util.concurrent.TimeUnit;
 
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
 
 public class HomeFragment extends Fragment {
 
@@ -79,26 +70,6 @@ public class HomeFragment extends Fragment {
     int viewflag = 0;
 
     @Override
-<<<<<<< HEAD
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-//      vvvvvvvvvvvvvvvvvvvvvv  example: add something to remoted database   vvvvvvvvvvvvvvvvvvvvvvvvvvvv
-        ParseObject firstObject = new ParseObject("FirstClass");
-        firstObject.put("message","Hey ! First message from android. Parse is now connected");
-        firstObject.saveInBackground(e -> {
-            if (e != null){
-                Log.e("MainActivity", e.getLocalizedMessage());
-            }else{
-                Log.d("MainActivity","Object saved.");
-            }
-        });
-//      ^^^^^^^^^^^^^^^^^^^^^^  example: add something to remoted database   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-=======
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -119,7 +90,6 @@ public class HomeFragment extends Fragment {
         if(userlist.size()==0)
         {
             new fetchData().start();//userlist沒東西時才需要去抓資料
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
         }
 
 
@@ -194,9 +164,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-<<<<<<< HEAD
-}
-=======
 
 
     /*class thread2 extends Thread{
@@ -331,4 +298,3 @@ public class HomeFragment extends Fragment {
 
 //https://stackoverflow.com/questions/313
 
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961

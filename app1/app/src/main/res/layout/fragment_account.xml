@@ -28,41 +28,20 @@
             android:orientation="horizontal">
 
             <ImageView
-<<<<<<< HEAD
-<<<<<<< HEAD
-                android:id="@+id/imageViewHome1"
-                android:layout_width="150dp"
-=======
-                android:id="@+id/imageView"
-                android:layout_width="20dp"
->>>>>>> 1e0bb0a (20221123)
-=======
 
                 android:id="@+id/imageView"
                 android:layout_width="20dp"
 
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
                 tools:src="@tools:sample/avatars" />
 
-<<<<<<< HEAD
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="280dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.6"
-                android:gravity="center"
-                android:text="username"
-                android:textSize="24sp" />
-=======
             <Button
                 android:id="@+id/userbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.4"
                 android:text="會員登入" />
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
 
         </LinearLayout>
 
@@ -79,18 +58,11 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
-<<<<<<< HEAD
-                android:id="@+id/button5"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.1"
-=======
                 android:id="@+id/btn_record"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
                 android:onClick="onClick"
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
                 android:text="店家瀏覽紀錄" />
         </LinearLayout>
 
@@ -107,11 +79,7 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
-<<<<<<< HEAD
-                android:id="@+id/button4"
-=======
                 android:id="@+id/btn_person"
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
@@ -131,7 +99,7 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/btn_discount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
@@ -151,7 +119,7 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/btn_background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
@@ -171,7 +139,7 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/btn_scoreapp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
@@ -192,7 +160,7 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/btn_bug"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
@@ -212,7 +180,7 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/btn_aboutus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"

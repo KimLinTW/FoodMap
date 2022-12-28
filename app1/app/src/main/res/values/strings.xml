@@ -11,13 +11,10 @@
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
     <string name="back4app_app_id">gZoU37oJOfqon5HZ6LgunGhRrvRDVwbRKQNGGhVD</string>
     <string name="back4app_client_key">d3uJ6ay8avBnAdi8uuJyuRyVHv3xYU1tZqQY3WAP</string>
-<<<<<<< HEAD
-=======
 
     <string-array name="bugselect">
         <item>bug1</item>
         <item>bug2</item>
         <item>bug3</item>
     </string-array>
->>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
 </resources>

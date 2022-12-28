@@ -1,32 +1,77 @@
 package com.example.kinmenfoodmap;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+<<<<<<< HEAD
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+=======
+
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+
+import android.widget.TextView;
+
+
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.example.kinmenfoodmap.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements LocationListener {
+    private static final int PERMISSION_REQUEST_GPS = 101;
+    public static ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
+    private LocationManager lc;
+    private Double lat = 0.0;
+    private Double lng = 0.0;
 
     ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //GPS位置取得
+        lc = (LocationManager) getSystemService(LOCATION_SERVICE);
+        if(!lc.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("定位管理").setMessage("GPS目前未啟用").setPositiveButton("確定", null).create().show();
+        }
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                checkSelfPermission(
+                        Manifest.permission.ACCESS_FINE_LOCATION) !=
+                        PackageManager.PERMISSION_GRANTED){
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSION_REQUEST_GPS);
+        }
+
         super.onCreate(savedInstanceState);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
+
 
         binding.menu.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId())
             {
                 case R.id.item1:
+                    System.out.println("還是直接看這裡吧");
                     replaceFragment(new HomeFragment());
                     break;
                 case  R.id.item2:
@@ -39,17 +84,18 @@ public class MainActivity extends AppCompatActivity {
                     replaceFragment(new favoriteFragment());
                     break;
                 case  R.id.item5:
-                    replaceFragment(new accountFragment());
+                    replaceFragment(new accFragment());
                     break;
 
             }
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
         return  true;
         });
-
-
     }
 
     private  void replaceFragment(Fragment fragment){
@@ -59,7 +105,41 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
+    @Override //詢問GPS使用權限
+    public void onRequestPermissionsResult(int requestCode,
+        @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == PERMISSION_REQUEST_GPS){}
+    }
 
+    @Override //更新GPS座標位置
+    protected void onResume() {
+        super.onResume();
+        int minTime = 1000;
+        float minDistance = 1;
+        try{
+            String best = lc.getBestProvider(new Criteria(), true);
+            if(best != null){
+                lc.requestLocationUpdates(best, minTime, minDistance, this);
+            }
+            else{}
+        }catch (SecurityException ex){Log.e("GPS位置", "GPS權限失敗" + ex.getMessage());}
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try{lc.removeUpdates(this);}
+        catch (SecurityException ex){Log.e("GPS位置", "GPS權限失敗" + ex.getMessage());}
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        if(location != null){
+            lat = location.getLatitude();
+            lng = location.getLongitude();
+        }
+
+    }
 
 }
 

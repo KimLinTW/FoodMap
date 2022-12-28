@@ -29,16 +29,24 @@
 
             <ImageView
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:id="@+id/imageViewHome1"
                 android:layout_width="150dp"
 =======
                 android:id="@+id/imageView"
                 android:layout_width="20dp"
 >>>>>>> 1e0bb0a (20221123)
+=======
+
+                android:id="@+id/imageView"
+                android:layout_width="20dp"
+
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
                 android:layout_height="match_parent"
                 android:layout_weight="0.4"
                 tools:src="@tools:sample/avatars" />
 
+<<<<<<< HEAD
             <TextView
                 android:id="@+id/username"
                 android:layout_width="280dp"
@@ -47,6 +55,14 @@
                 android:gravity="center"
                 android:text="username"
                 android:textSize="24sp" />
+=======
+            <Button
+                android:id="@+id/userbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="會員登入" />
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
 
         </LinearLayout>
 
@@ -63,10 +79,18 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
+<<<<<<< HEAD
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
+=======
+                android:id="@+id/btn_record"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:onClick="onClick"
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
                 android:text="店家瀏覽紀錄" />
         </LinearLayout>
 
@@ -83,7 +107,11 @@
                 tools:src="@tools:sample/avatars" />
 
             <Button
+<<<<<<< HEAD
                 android:id="@+id/button4"
+=======
+                android:id="@+id/btn_person"
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"

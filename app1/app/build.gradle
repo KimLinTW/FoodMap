@@ -36,6 +36,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+<<<<<<< HEAD
+=======
+    implementation 'com.squareup.picasso:picasso:2.71828'//imageview
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'

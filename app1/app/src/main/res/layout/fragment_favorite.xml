@@ -78,10 +78,18 @@
             android:id="@+id/constraintLayout5"
             android:layout_width="160dp"
             android:layout_height="167dp"
+<<<<<<< HEAD
             android:layout_marginStart="124dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+=======
+            android:layout_marginStart="172dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+            app:layout_constraintVertical_bias="0.074">
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
 
             <TextView
                 android:id="@+id/add_db"
@@ -91,6 +99,10 @@
                 android:layout_marginTop="16dp"
                 android:background="#C3E2E6"
                 android:clickable="true"
+<<<<<<< HEAD
+=======
+                android:onClick="onClick"
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
                 android:shadowColor="#61DCEC"
                 android:text="ADD"
                 android:textColor="#4CAF50"
@@ -146,6 +158,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
+<<<<<<< HEAD
             android:id="@+id/tst_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -164,17 +177,67 @@
             android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+=======
+            android:id="@+id/result_db"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="36dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginStart="16dp"
             android:layout_marginTop="124dp"
             android:onClick="onClick"
             android:text="Button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tst_data" />
+=======
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:onClick="onClick"
+            android:text="Button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="240dp"
+            android:onClick="oonClick"
+            android:text="add2db"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="375dp" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginBottom="114dp"
+            android:onClick="onClick"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/asdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="92dp"
+            android:layout_marginBottom="92dp"
+            android:text="測試測試"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

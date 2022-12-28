@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+=======
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08bd6029-0fce-4bcd-8b2b-4edc965873ac" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/FoodMap.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FoodMap.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app1/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app1/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app1/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/MainActivity.java" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app1/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app1/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/SurpriseFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/SurpriseFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/favoriteFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app1/app/src/main/java/com/example/kinmenfoodmap/favoriteFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/app/src/main/res/layout/fragment_favorite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app1/app/src/main/res/layout/fragment_favorite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app1/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app1/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app1/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app1/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app1/settings.gradle" afterDir="false" />
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +52,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app1" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> 27ac072c81b4b22ddb24740b2c864dfdc44a6961
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

@@ -82,6 +82,7 @@ public class log_in_new extends AppCompatActivity {
                     pass = sb.toString();
                     if (pass.equals(passres)){
                         System.out.println("登入成功");
+
                         Toast.makeText(getApplicationContext(),"登入成功 歡迎" + acc,Toast.LENGTH_SHORT).show();
                         finish();
                     }
@@ -89,11 +90,13 @@ public class log_in_new extends AppCompatActivity {
                         System.out.println("密碼錯誤");
                         Toast.makeText(getApplicationContext(),"密碼錯誤",Toast.LENGTH_SHORT).show();
                         System.out.println(sb);
+
                     }
-                }
-                else {
+                }else {
                     System.out.println("error");
                     System.out.println("帳號錯誤");
+
+
                     Toast.makeText(getApplicationContext(),"帳號錯誤",Toast.LENGTH_SHORT).show();
                 }
             }

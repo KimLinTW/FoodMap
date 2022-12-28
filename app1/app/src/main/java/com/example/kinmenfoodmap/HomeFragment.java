@@ -1,6 +1,8 @@
 package com.example.kinmenfoodmap;
 
 
+import static com.example.kinmenfoodmap.MainActivity.userlist;
+
 import android.app.Activity;
 
 import android.app.ProgressDialog;
@@ -14,10 +16,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kinmenfoodmap.databinding.ActivityMainBinding;
 import com.parse.FindCallback;
@@ -49,55 +54,160 @@ import java.util.concurrent.TimeUnit;
 
 public class HomeFragment extends Fragment {
 
-    ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
+
+
+
+
     ActivityMainBinding binding;
   //  ArrayList<String> userlist;
-    HomeAdapter listAdapter;
+   public static HomeAdapter listAdapter;
 
-    Handler handler = new Handler();
-    ProgressDialog progressDialog;
-    int shop_amount = 11;
+
+
+
+   public static int threadflag = 0;
+
+    int viewflag = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+
+
+        Button btn1 = (Button) view.findViewById(R.id.button);
+        Button btn_add = (Button) view.findViewById(R.id.add_shop_btn);
+        ListView list1 = (ListView)view.findViewById(R.id.userlist);
+//        ExpandableListView list1 = (ExpandableListView) view.findViewById(R.id.userlist);
+
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        //setContentView(binding.getRoot());
+        //items = getActivity().getResources().getString(R.id.userlist);
+
+
+        listAdapter = new HomeAdapter((Activity) view.getContext(),userlist);
+        list1.setAdapter(listAdapter);
+        System.out.println("讓我看看userlist狀態"+userlist.size());
+        if(userlist.size()==0)
+        {
+            new fetchData().start();//userlist沒東西時才需要去抓資料
+        }
+
+
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("看看"+userlist.size());
+                listAdapter.notifyDataSetChanged();
+            }
+        });
+
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), add_store.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+
+        // 獲取 ListView 的引用
+        ListView listView = (ListView) view.findViewById(R.id.userlist);
+// 設置點擊事件的監聽器
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                View test_view = inflater.inflate(R.layout.fragment_home,null);
+//                String item = (String) parent.getItemAtPosition(position).toString();
+//                System.out.println(item.toString());
+                TextView textView19 = (TextView) test_view.findViewById(R.id.textView19);
+                System.out.println(textView19);
+                String shop_name = userlist.get(position).getmName();
+                Toast.makeText(getContext(), "You clicked on: " + shop_name, Toast.LENGTH_SHORT).show();
+                textView19.setText(shop_name);
+                textView19.setText("123");
+                System.out.println("19:");
+                System.out.println(textView19.getText().toString());
+                TextView textView2 = (TextView) view.findViewById(R.id.textView19); //null
+                System.out.println(textView2);
+
+            }
+
+        });
+        TextView textView2 = (TextView) view.findViewById(R.id.textView19);
+        System.out.println(textView2);
+
+
+
+
+//        ExpandableListView listView = (ExpandableListView) view.findViewById(R.id.userlist);
+//
+//
+//        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+//            @Override
+//            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) { //childPosition代表著要接收的數組的列數
+//                if (groupPosition==0){//groupPosition代表著要接收的數組的行數
+//                    System.out.println("113");
+//                }else if (groupPosition==1){
+//                    System.out.println("115");
+//                }
+//                return true;
+//            }
+//        });
+
+
         return view;
     }
 
 
-    private void initialUserlist() {
-//        userlist = new ArrayList<>();
-
-        //listAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.); //.support_simple_spinner_dropdown_item,userlist);
-
-        //userlist = new ArrayList<>();
-        //System.out.println("init只會有一次吧");
-    }
 
 
-    class thread2 extends Thread{
+    /*class thread2 extends Thread{
+
+
         @Override
         public void run() {
             while(userlist.size() == 0){
-                try{
-                    System.out.println("waiting for db");
-                    TimeUnit.SECONDS.sleep(5);
+            try{
+                System.out.println("waiting for db");
+                TimeUnit.SECONDS.sleep(5);
+                if(threadflag==0)
+                {
+                    System.out.println("thread是給0所以進來");//讓threas2睡一下,東西出來再叫他
                     new fetchData().start();
-                    if (userlist.size() > shop_amount) userlist.subList(0,shop_amount);
-                }catch (Exception e){
-                    System.out.println("error while creating");
+                    threadflag=1;
                 }
+
+            }catch (Exception e){
+                System.out.println("error while creating");
             }
-            if (userlist.size() > shop_amount){
-                userlist.subList(0,shop_amount);
-                System.out.println("重整user list");
             }
+
+            System.out.println("終於跳出來");
+            System.out.println("看看這個list是什麼"+userlist);
+
+           // listAdapter.notifyDataSetChanged();
+
+           new fetchData().start();
+
+
+           // listAdapter.notifyDataSetChanged();
+
         }
 
-    }
 
 
-    class fetchData extends Thread{
+
+    }*/
+
+
+    /*class fetchData extends Thread{
         String data = "";
         @Override
         public void run() {
@@ -106,10 +216,11 @@ public class HomeFragment extends Fragment {
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    progressDialog = new ProgressDialog(getActivity());
-                    progressDialog.setMessage("Fetching");
-                    progressDialog.show();
-                }
+                    System.out.println("看看handler的狀態");
+                        progressDialog = new ProgressDialog(getActivity());
+                        progressDialog.setMessage("Fetching");
+                        progressDialog.show();
+                    }
             });
 
             try {
@@ -117,11 +228,12 @@ public class HomeFragment extends Fragment {
                 ParseQuery<ParseObject> query = new ParseQuery<>("Shop");
                 query.findInBackground(new FindCallback<ParseObject>() {
                     public void done(List<ParseObject> objects, ParseException e) {
+                        System.out.println("等這裡吧");
                         if (e == null) {
                             /* System.out.println("object是什"+objects);
                             String str="";
                             str+=objects.toString();
-                            System.out.println("看這裡"+str);*/
+                            System.out.println("看這裡"+str);
                             if (userlist.size() > shop_amount)
 
                                 userlist.clear();
@@ -137,12 +249,8 @@ public class HomeFragment extends Fragment {
                                            // String menu = result.getString("ShopPicture");
                                             //System.out.println("感覺在這裡過不了"+menu);
                                             System.out.println("get shop:" + shopName);
-
-
                                             //  userlist.add(new HomeListMapping("https://i.imgur.com/bLuqfnQ.jpg",shopName,address));
                                             userlist.add(new HomeListMapping(shopName,address));
-
-
                                         }
                                         // Do something with result
                                     }
@@ -150,6 +258,7 @@ public class HomeFragment extends Fragment {
                             }
                             System.out.println("以下為店家列表");
                             System.out.println(userlist);
+
                         } else {
                             //objectRetrievalFailed();
                             System.out.println("GGGGGGG");
@@ -157,68 +266,7 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
-               /*  這是只找一個的方式
-                    query.getFirstInBackground(new GetCallback<ParseObject>() {
-                        @Override
-                        public void done(ParseObject object, ParseException e) {
-                            if(e==null)
-                            {
-                                String str="";
-                                str+=object.getString("shopName");
-                                System.out.println("看這裡"+str);
-                                //object.getJSONObject("")
-                            }
-                            else
-                            {
-                                System.out.println("error");
-                            }
-                        }
-                    });*/
 
-
-//                url = new URL("");//http://10.0.2.2:5000/api/Books
-//                HttpURLConnection httpsURLConnection = (HttpURLConnection) url.openConnection();
-//                InputStream inputStream = httpsURLConnection.getInputStream();
-//                //System.out.println("Input是什麼"+inputStream);
-//
-//                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-//                String line;
-//                //System.out.println("line是空的？");
-//
-//                //如果buffReader沒有讀到空的就繼續
-//                while ((line = bufferedReader.readLine()) != null) {
-//                    System.out.println("有道line" + data);
-//                    data = data + line;
-//                    System.out.println("data" + data);
-//                }
-//                //如果data不是空的，就把data抓進Json放到userlist
-//
-//                if (!data.isEmpty()) {
-//                    //System.out.println("");
-//                    //JSONObject jsonObject = new JSONObject(data);
-//                    JSONArray jsonArray = new JSONArray(data);
-//                    userlist.clear();
-//                    for (int j = 0; j < jsonArray.length(); j++) {//10上線需要改
-//                        JSONObject jsonobject = jsonArray.getJSONObject(j);
-//                        String name = jsonobject.getString("name");
-//                        System.out.println("這裡要看到name" + name);
-//                        userlist.add(name);
-//                        System.out.println("這裡的userlist" + userlist);
-//                    }
-//                    //等等資料近來這裡
-//                } else {
-//                    System.out.println("到這裡就ＧＧ了");
-//                }
-//            } catch (MalformedURLException e) {
-//                System.out.println("1");
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                System.out.println("2");
-//                e.printStackTrace();
-//            } catch (JSONException e) {
-//                System.out.println("3");
-//                e.printStackTrace();
-//            }
             }catch( Exception e){
 
                 System.out.println(e);
@@ -234,14 +282,18 @@ public class HomeFragment extends Fragment {
                         progressDialog.dismiss();
 
                         //  System.out.println("看得到嗎嗎嗎？"+listAdapter);
-                        listAdapter.notifyDataSetChanged();
+                        System.out.println("這裡一定會跑到");
+                       listAdapter.notifyDataSetChanged();
                         //   System.out.println("看得到？"+listAdapter);
 
                     }
                 }
             });
         }
-    }
+
+
+    }*/
+
 
 
 }

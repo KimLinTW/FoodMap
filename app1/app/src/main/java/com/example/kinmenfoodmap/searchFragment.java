@@ -1,5 +1,6 @@
 package com.example.kinmenfoodmap;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,8 +18,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class searchFragment extends Fragment  {
     private GoogleMap mMap;
@@ -38,6 +47,7 @@ public class searchFragment extends Fragment  {
                  mMap = googleMap;
                  ArrayList<LatLng> list = MapData.getPositions();//抓MapData(位置)資料
                  ArrayList<String> list_de = MapDataDetail.getPositions();//抓MapDataDetail(內容)資料
+
 
                 int i = 0 ;
                  for (LatLng latLng:list)//list有多少撈多少
@@ -80,6 +90,8 @@ public class searchFragment extends Fragment  {
         //
         getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 50), 3000, null);
     }
+
+
 
 
 }

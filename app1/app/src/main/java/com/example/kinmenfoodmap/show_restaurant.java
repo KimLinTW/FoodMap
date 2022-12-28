@@ -24,6 +24,7 @@ public class show_restaurant extends AppCompatActivity {
     private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_restaurant);
         name = (TextView) findViewById(R.id.restaurant_name);
@@ -32,10 +33,23 @@ public class show_restaurant extends AppCompatActivity {
         web.getSettings().setJavaScriptEnabled(true);
         web.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         web.setWebViewClient(new myWebViewClient());
+        //String name =  rest_name += player.getString("shopName");
+        //rest_address += player.getString("address");
+        Bundle bundle = this.getIntent().getExtras();
+        String rest_name = bundle.getString("shopName");
+        String rest_address  = bundle.getString("address");
+        //System.out.println("看到這裡的bundle");
+        name.setText("餐廳名稱"+rest_name);
+        address.setText("地址"+rest_address);
+
+    }
+
+    public void return_Click(View view){
+        finish();
     }
 
     public void onClick(View view) {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
+        /*ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
         query.whereEqualTo("shopName", "浯洲金鼎燒鍋");
         query.getFirstInBackground(new GetCallback<ParseObject>() {
             public void done(ParseObject player, ParseException e) {
@@ -59,6 +73,7 @@ public class show_restaurant extends AppCompatActivity {
 
                     rest_name += player.getString("shopName");
                     rest_address += player.getString("address");
+
                     rest_shoppic = player.getString("ShopPicture");
 
                     System.out.println(response);
@@ -71,7 +86,9 @@ public class show_restaurant extends AppCompatActivity {
             }
         });
 
-        System.out.println("^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^");*/
+
+
 
     }
 

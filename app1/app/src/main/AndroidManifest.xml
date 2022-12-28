@@ -48,7 +48,7 @@
         <activity
             android:name=".ActivityGood"
             android:exported="false" />
-
+        金食堂
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBVuTOOSKsmj5vxqIlxAYQfeWvVwstLGUc" />

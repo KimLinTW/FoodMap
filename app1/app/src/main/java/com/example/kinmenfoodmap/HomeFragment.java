@@ -74,6 +74,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
 
+
         Button btn1 = (Button) view.findViewById(R.id.button);
         Button btn_add = (Button) view.findViewById(R.id.add_shop_btn);
         ListView list1 = (ListView)view.findViewById(R.id.userlist);
@@ -159,6 +160,7 @@ public class HomeFragment extends Fragment {
 //                return true;
 //            }
 //        });
+
 
         return view;
     }

@@ -33,41 +33,39 @@
         android:onClick="signbtn"
         android:text="去註冊"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="341dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <Button
         android:id="@+id/log_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginTop="67dp"
         android:layout_marginEnd="97dp"
         android:onClick="logbtn"
         android:text="登入"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/go_sign_in"
-        tools:layout_editor_absoluteY="341dp" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="79dp"
+        android:layout_marginTop="48dp"
         android:text="還沒有帳號嗎?"
-        app:layout_constraintBottom_toTopOf="@+id/go_sign_in"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
     <Button
         android:id="@+id/finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="149dp"
-        android:layout_marginEnd="174dp"
+        android:layout_marginTop="13dp"
         android:onClick="btn_clk"
         android:text="返回"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="402dp" />
+        app:layout_constraintTop_toBottomOf="@+id/go_sign_in" />
 
     <EditText
         android:id="@+id/txtAccount"
@@ -77,6 +75,9 @@
         android:layout_marginTop="134dp"
         android:ems="10"
         android:inputType="textPersonName"
+
+        android:text=""
+
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,6 +89,9 @@
         android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPassword"
+
+        android:text=""
+
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/txtAccount" />
 

@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     a. 分頁功能 ------------------------------- Done
     b. 基本元件(id)
     c. 美觀
-
+//123
 2. 主程式
     a. 實作每個元件對應的功能
     b. 跟地圖連接

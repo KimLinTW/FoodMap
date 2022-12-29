@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.parse.ParseGeoPoint;
@@ -23,13 +22,16 @@ public class add_store extends AppCompatActivity {
         setContentView(R.layout.activity_add_store);
     }
     public void btn_add_store(View view) {
+
         TextView output = (TextView) findViewById(R.id.lblOutput);
         TextView address = (TextView) findViewById(R.id.shop_addr);
         TextView shop_name = (TextView) findViewById(R.id.shopname);
+
         output.setText("新增成功");
 
         //vvvvvvvvvvvvvvvvvvvvvv  example: add something to remoted database   vvvvvvvvvvvvvvvvvvvvvvvvvvvv
         ParseObject firstObject = new ParseObject("Shop");
+
         firstObject.put("shopName", shop_name.getText().toString());
         firstObject.put("address", shop_name.getText().toString());
         firstObject.put("ID", 0);
@@ -37,7 +39,15 @@ public class add_store extends AppCompatActivity {
         ParseGeoPoint currentUserLocation = new ParseGeoPoint(0.2, 0.3);
         firstObject.put("latitude_longitude",currentUserLocation );
         firstObject.put("ID", 0);
+
         firstObject.saveInBackground(e -> {
+            if (e != null){
+                Log.e("MainActivity", e.getLocalizedMessage());
+            }else{
+                Log.d("MainActivity","Object saved.");
+            }
+        });
+        secObject.saveInBackground(e -> {
             if (e != null){
                 Log.e("MainActivity", e.getLocalizedMessage());
             }else{

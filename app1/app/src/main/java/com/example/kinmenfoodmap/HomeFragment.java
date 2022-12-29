@@ -129,13 +129,18 @@ public class HomeFragment extends Fragment {
                 TextView textView19 = (TextView) test_view.findViewById(R.id.textView19);
                 System.out.println(textView19);
                 String shop_name = userlist.get(position).getmName();
+                String shop_adds = userlist.get(position).getmAddress();
                 Toast.makeText(getContext(), "You clicked on: " + shop_name, Toast.LENGTH_SHORT).show();
-                textView19.setText(shop_name);
-                textView19.setText("123");
-                System.out.println("19:");
-                System.out.println(textView19.getText().toString());
-                TextView textView2 = (TextView) view.findViewById(R.id.textView19); //null
-                System.out.println(textView2);
+                Intent intent = new Intent(getActivity(), show_restaurant.class);
+                intent.putExtra("shopName", shop_name);
+                intent.putExtra("address", shop_adds);
+                startActivity(intent);
+               // textView19.setText(shop_name);
+                //textView19.setText("123");
+                //System.out.println("19:");
+                //System.out.println(textView19.getText().toString());
+                //TextView textView2 = (TextView) view.findViewById(R.id.textView19); //null
+                //System.out.println(textView2);
 
             }
 

@@ -23,7 +23,7 @@ public class add_store extends AppCompatActivity {
     }
     public void btn_add_store(View view) {
 
-        TextView output = (TextView) findViewById(R.id.lblOutput);
+        TextView output = (TextView) findViewById(R.id.lblOutput1);
         TextView address = (TextView) findViewById(R.id.shop_addr);
         TextView shop_name = (TextView) findViewById(R.id.shopname);
 
@@ -31,9 +31,10 @@ public class add_store extends AppCompatActivity {
 
         //vvvvvvvvvvvvvvvvvvvvvv  example: add something to remoted database   vvvvvvvvvvvvvvvvvvvvvvvvvvvv
         ParseObject firstObject = new ParseObject("Shop");
+        ParseObject secObject = new ParseObject("ID");//mikey於20221230新增
 
         firstObject.put("shopName", shop_name.getText().toString());
-        firstObject.put("address", shop_name.getText().toString());
+        secObject.put("address", shop_name.getText().toString());//mikey於20221230更改firstObject為secObject
         firstObject.put("ID", 0);
 //        ParseGeoPoint currentUserLocation = new ParseGeoPoint(location.getLatitude(), location.getLongitude());
         ParseGeoPoint currentUserLocation = new ParseGeoPoint(0.2, 0.3);

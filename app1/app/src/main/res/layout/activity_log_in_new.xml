@@ -29,29 +29,30 @@
         android:id="@+id/go_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="82dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="380dp"
         android:onClick="signbtn"
         android:text="去註冊"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/log_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        android:layout_marginEnd="97dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="75dp"
         android:onClick="logbtn"
         android:text="登入"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="84dp"
         android:text="還沒有帳號嗎?"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
@@ -60,12 +61,12 @@
         android:id="@+id/finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="149dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="448dp"
         android:onClick="btn_clk"
         android:text="返回"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/go_sign_in" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtAccount"

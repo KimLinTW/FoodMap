@@ -48,7 +48,7 @@
         android:layout_marginStart="75dp"
         android:layout_marginBottom="156dp"
         android:onClick="button2_Click"
-        android:text="離開"
+        android:text="返回"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

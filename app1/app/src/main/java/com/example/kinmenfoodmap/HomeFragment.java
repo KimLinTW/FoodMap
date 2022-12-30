@@ -69,6 +69,10 @@ public class HomeFragment extends Fragment {
         Button btn1 = (Button) view.findViewById(R.id.button);
         Button btn_add = (Button) view.findViewById(R.id.add_shop_btn);
         ListView list1 = (ListView)view.findViewById(R.id.userlist);
+        if(MainActivity.user_permission == 0)
+            btn_add.setVisibility(View.GONE);
+        else if(MainActivity.user_permission == 1)
+            btn_add.setVisibility(View.VISIBLE);
 //        ExpandableListView list1 = (ExpandableListView) view.findViewById(R.id.userlist);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());

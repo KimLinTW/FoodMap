@@ -84,6 +84,7 @@ public class log_in_new extends AppCompatActivity {
                         System.out.println("登入成功");
 
                         Toast.makeText(getApplicationContext(),"登入成功 歡迎" + acc,Toast.LENGTH_SHORT).show();
+                        MainActivity.user_permission = 1;
                         finish();
                     }
                     else{

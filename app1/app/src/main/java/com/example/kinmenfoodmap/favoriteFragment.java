@@ -1,32 +1,22 @@
 package com.example.kinmenfoodmap;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import com.parse.GetCallback;
-import com.parse.ParseException;
-
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class favoriteFragment extends Fragment implements View.OnClickListener {
     private String latandlng = "";
@@ -55,47 +45,56 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
 
         Button showfavorite = (Button)view.findViewById(R.id.show);
-        ListView listfavorite = (ListView)view.findViewById(R.id.listfavorite);
-
+        
+        String[] resAddress;
+        
         showfavorite.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-
                 System.out.println("123");
                 try{
-
                     Context context = getActivity();
                     dbHelper = new StdDBHelper(context);
                     db = dbHelper.getWritableDatabase();
-                    SqlQuery("SELECT * FROM " + DATABASE_TABLE);
-
-
+                    SqlQuery("SELECT * FROM " + DATABASE_TABLE, context);
                 }
                 catch (Exception ex){
                     System.out.println(ex.toString());
                 }
             }
-            private void SqlQuery(String sql) {
+            private void SqlQuery(String sql, Context context) {
                 String[] colNames;
                 String str = "";
+                String resName = "";
                 Cursor c = db.rawQuery(sql, null);
+                
+
                 colNames = c.getColumnNames();
                 for(int i = 0;i < colNames.length;i++){
-                    str +=colNames[i] + "\t\t";
+                    str += colNames[i] + "\t\t";
                 }
                 str += "\n";
                 c.moveToFirst();
                 for(int i = 0;i < c.getCount();i++){
                     str += c.getString(0) + "\t\t";
                     str += c.getString(1) + "\n";
+                    resName += c.getString(0);
+                    resName += ", ";
                     c.moveToNext();
+
                 }
                 System.out.println(str.toString());
+                System.out.println(resName);
             }
         });
+  /*      listfavorite.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
-
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                listfavorite
+            }
+        });
+*/
         // Inflate the layout for this fragment
 /*
         btn_show.setOnClickListener(new View.OnClickListener() {

@@ -62,7 +62,6 @@
         android:layout_marginTop="136dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,7 +75,6 @@
         android:layout_marginTop="35dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="address"
         app:layout_constraintStart_toEndOf="@+id/textView22"
         app:layout_constraintTop_toBottomOf="@+id/shopname" />
 

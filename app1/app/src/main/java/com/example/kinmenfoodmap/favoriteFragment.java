@@ -1,6 +1,11 @@
 package com.example.kinmenfoodmap;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.parse.ParseObject;
@@ -24,48 +30,77 @@ import java.security.NoSuchAlgorithmException;
 
 public class favoriteFragment extends Fragment implements View.OnClickListener {
     private String latandlng = "";
+    private static String DATABASE_TABLE = "favorite";
+    private SQLiteDatabase db;
+    private StdDBHelper dbHelper;
+    private String sql;
+    private com.example.kinmenfoodmap.show_restaurant show_restaurant;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onStop() {
+        super.onStop();
+        db.close();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
-        // Inflate the layout for this fragment
-        Button btn6 = (Button) view.findViewById(R.id.asdf); //測試測試的fragment轉activity
 
-        Button btn1 = (Button) view.findViewById(R.id.button2);
-        Button btn2 = (Button) view.findViewById(R.id.button3);
-        Button btn3 = (Button) view.findViewById(R.id.button9);
-        TextView btn_add = (TextView) view.findViewById(R.id.add_db);
-        TextView btn_show = (TextView) view.findViewById(R.id.show_db);
+        Button showfavorite = (Button)view.findViewById(R.id.show);
+        ListView listfavorite = (ListView)view.findViewById(R.id.listfavorite);
 
-        TextView output = (TextView) view.findViewById(R.id.result_db);
+        showfavorite.setOnClickListener(new View.OnClickListener() {
 
-
-        btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
-            // add shop
             public void onClick(View view) {
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("FirstClass");
-                query.whereEqualTo("objectId", "0mfC6T5HHR");
 
+                System.out.println("123");
+                try{
+
+                    Context context = getActivity();
+                    dbHelper = new StdDBHelper(context);
+                    db = dbHelper.getWritableDatabase();
+                    SqlQuery("SELECT * FROM " + DATABASE_TABLE);
+
+
+                }
+                catch (Exception ex){
+                    System.out.println(ex.toString());
+                }
+            }
+            private void SqlQuery(String sql) {
+                String[] colNames;
+                String str = "";
+                Cursor c = db.rawQuery(sql, null);
+                colNames = c.getColumnNames();
+                for(int i = 0;i < colNames.length;i++){
+                    str +=colNames[i] + "\t\t";
+                }
+                str += "\n";
+                c.moveToFirst();
+                for(int i = 0;i < c.getCount();i++){
+                    str += c.getString(0) + "\t\t";
+                    str += c.getString(1) + "\n";
+                    c.moveToNext();
+                }
+                System.out.println(str.toString());
             }
         });
 
+
+        // Inflate the layout for this fragment
+/*
         btn_show.setOnClickListener(new View.OnClickListener() {
             @Override
             // show app
             public void onClick(View view) {
                 ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
                 query.whereEqualTo("shopName", "浯洲金鼎燒鍋");
-
                 query.getFirstInBackground(new GetCallback<ParseObject>() {
                     public void done(ParseObject player, ParseException e) {
                         if (e == null) {
@@ -86,7 +121,6 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                             response += player.getParseGeoPoint("latitude_longitude");
                             response += "\n";
 
-
                             lat += player.getParseGeoPoint("latitude_longitude").getLatitude();
                             lng += player.getParseGeoPoint("latitude_longitude").getLongitude();
                             //latlng += player.getParseGeoPoint("latitude_longitude");
@@ -98,34 +132,13 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                         }
                     }
                 });
-
-
                 System.out.println("^^^^^^^^^^^^^^^^^^^^^^");
                 latandlng = output.getText().toString();
                 System.out.println(latandlng);
                 //output.setText(response);
             }
         });
-
-        //測試測試的fragment轉activity
-        btn6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), show_restaurant.class);
-                startActivity(i);
-            }
-        });//測試測試的fragment轉activity
-
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                output.setText("Button 1");
-
-            }
-        });
         btn2.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View view) {
                 output.setText("Button 2");
@@ -142,56 +155,41 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
                 });
 //      ^^^^^^^^^^^^^^^^^^^^^^  example: add something to remoted database   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
             }
-        });
-
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("login");
-                query.whereEqualTo("user_name", "test");
-                query.getFirstInBackground(new GetCallback<ParseObject>() {
-                    public void done(ParseObject player, ParseException e) {
-                        if (e == null) {
-                            System.out.println("ok:");
-                            String response = "";
-                            response += player.getString("hash_pass");
-                            System.out.println(response);
-                        }
-                    }
-                });
-
-                MessageDigest md = null;
-                try {
-                    md = MessageDigest.getInstance("SHA-1");
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                }
-                byte[] passbyte = new byte[0];
-                try {
-                    passbyte = "abcdef12".getBytes("UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-                passbyte = md.digest(passbyte);
-                StringBuilder sb = new StringBuilder();
-                for (byte b : passbyte) {
-                    sb.append(String.format("%02x", b));
-                }
-
-            }
-        });
-
-
-
+        }); */
         return view;
     }
 
 
-
-    public void button_Click(View view){
-//        TextView output = (TextView)findViewById(R.id.show_db);
+/*
+    public void buttonclllick(View view){
+        System.out.println("123");
+        try {
+            SqlQuery("SELECT * FROM " + DATABASE_TABLE);
+        }
+        catch (Exception ex){
+            System.out.println("錯誤" + ex.toString());
+        }
     }
+
+    private void SqlQuery(String sql) {
+        String[] colNames;
+        String str = "";
+        Cursor c = db.rawQuery(sql, null);
+        colNames = c.getColumnNames();
+        for(int i = 0;i < colNames.length;i++){
+            str +=colNames[i] + "\t\t";
+        }
+        str += "\n";
+        c.moveToFirst();
+        for(int i = 0;i < c.getCount();i++){
+            str += c.getString(0) + "\t\t";
+            str += c.getString(1) + "\n";
+            c.moveToNext();
+        }
+        System.out.println(str.toString());
+    }*/
+
+
 
     @Override
     public void onClick(View view) {

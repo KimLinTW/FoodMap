@@ -39,12 +39,21 @@ public class accFragment extends Fragment {
         Button btn_discount = (Button) view.findViewById(R.id.btn_discount);
         Button btn_bug = (Button) view.findViewById(R.id.btn_bug);
         Button btn_about_us = (Button) view.findViewById(R.id.btn_aboutus);
+        Button btn_bg = (Button)view.findViewById(R.id.btn_background);
         TextView btn_user = (TextView) view.findViewById(R.id.username);
 
         btn_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), log_in_new.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_bg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ColorChange.class);
                 startActivity(intent);
             }
         });

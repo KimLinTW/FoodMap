@@ -54,16 +54,9 @@ import java.util.concurrent.TimeUnit;
 
 public class HomeFragment extends Fragment {
 
-
-
-
-
     ActivityMainBinding binding;
   //  ArrayList<String> userlist;
    public static HomeAdapter listAdapter;
-
-
-
 
    public static int threadflag = 0;
 
@@ -73,11 +66,13 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-
-
         Button btn1 = (Button) view.findViewById(R.id.button);
         Button btn_add = (Button) view.findViewById(R.id.add_shop_btn);
         ListView list1 = (ListView)view.findViewById(R.id.userlist);
+        if(MainActivity.user_permission == 0)
+            btn_add.setVisibility(View.GONE);
+        else if(MainActivity.user_permission == 1)
+            btn_add.setVisibility(View.VISIBLE);
 //        ExpandableListView list1 = (ExpandableListView) view.findViewById(R.id.userlist);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -92,8 +87,6 @@ public class HomeFragment extends Fragment {
         {
             new fetchData().start();//userlist沒東西時才需要去抓資料
         }
-
-
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,11 +119,11 @@ public class HomeFragment extends Fragment {
                 View test_view = inflater.inflate(R.layout.fragment_home,null);
 //                String item = (String) parent.getItemAtPosition(position).toString();
 //                System.out.println(item.toString());
-                TextView textView19 = (TextView) test_view.findViewById(R.id.textView19);
-                System.out.println(textView19);
+//                TextView textView19 = (TextView) test_view.findViewById(R.id.textView19);
+//                System.out.println(textView19);
                 String shop_name = userlist.get(position).getmName();
                 String shop_adds = userlist.get(position).getmAddress();
-                Toast.makeText(getContext(), "You clicked on: " + shop_name, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), shop_name, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), show_restaurant.class);
                 intent.putExtra("shopName", shop_name);
                 intent.putExtra("address", shop_adds);
@@ -141,12 +134,11 @@ public class HomeFragment extends Fragment {
                 //System.out.println(textView19.getText().toString());
                 //TextView textView2 = (TextView) view.findViewById(R.id.textView19); //null
                 //System.out.println(textView2);
-
             }
 
         });
-        TextView textView2 = (TextView) view.findViewById(R.id.textView19);
-        System.out.println(textView2);
+//        TextView textView2 = (TextView) view.findViewById(R.id.textView19);
+//        System.out.println(textView2);
 
 
 
@@ -166,11 +158,8 @@ public class HomeFragment extends Fragment {
 //            }
 //        });
 
-
         return view;
     }
-
-
 
 
     /*class thread2 extends Thread{
@@ -206,11 +195,7 @@ public class HomeFragment extends Fragment {
 
         }
 
-
-
-
     }*/
-
 
     /*class fetchData extends Thread{
         String data = "";
@@ -271,13 +256,9 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
-
             }catch( Exception e){
-
                 System.out.println(e);
-
             }
-
 
             handler.post(new Runnable() {
                 @Override
@@ -295,12 +276,7 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
-
-
     }*/
-
-
-
 }
 
 //https://stackoverflow.com/questions/313

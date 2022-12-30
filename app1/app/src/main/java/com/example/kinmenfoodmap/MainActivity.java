@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public static ArrayList<HomeListMapping> userlist = new ArrayList<HomeListMapping>();
     public  static  ArrayList<LatLng> list = new ArrayList<>();
     public  static  ArrayList<String> MapName = new ArrayList<>();
+    public  static  int user_permission = 0; //0是使用者,1是管理者
     //public  static
     private LocationManager lc;
     private Double lat = 0.0;

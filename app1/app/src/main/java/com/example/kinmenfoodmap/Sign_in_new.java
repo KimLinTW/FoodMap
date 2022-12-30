@@ -47,40 +47,46 @@ public class Sign_in_new extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"帳號名稱重複",Toast.LENGTH_SHORT).show();
                 } else {
                     System.out.println("error");
-                    MessageDigest md = null;
-                    try {
-                        md = MessageDigest.getInstance("SHA-1");
-                    } catch (NoSuchAlgorithmException e) {
-                        e.printStackTrace();
-                    }
-                    byte[] password = new byte[0];
-                    try {
-                        String pass;
-                        pass = txtPassword.getText().toString();
-                        password = pass.getBytes("UTF-8");
 
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
+                    if (txtPassword.getText().toString() == null){
+                        Toast.makeText(getApplicationContext(),"密碼不能空白",Toast.LENGTH_SHORT).show();
                     }
-                    password = md.digest(password);
-                    StringBuilder sb = new StringBuilder();
-                    for (byte b : password) {
-                        sb.append(String.format("%02x", b));
-                    }
-                    System.out.println(sb);
-                    String sign = sb.toString();
-                    ParseObject firstObject = new ParseObject("login");
-                    firstObject.put("user_name", txtAccount.getText().toString());
-                    firstObject.put("hash_pass",sign);
-                    firstObject.saveInBackground(e -> {
-                        if (e != null){
-                            Log.e("MainActivity", e.getLocalizedMessage());
-                        }else{
-                            Log.d("MainActivity","Object saved.");
-                            Toast.makeText(getApplicationContext(),"註冊成功",Toast.LENGTH_SHORT).show();
-                            finish();
+                    else{
+                        MessageDigest md = null;
+                        try {
+                            md = MessageDigest.getInstance("SHA-1");
+                        } catch (NoSuchAlgorithmException e) {
+                            e.printStackTrace();
                         }
-                    });
+                        byte[] password = new byte[0];
+                        try {
+                            String pass;
+                            pass = txtPassword.getText().toString();
+                            password = pass.getBytes("UTF-8");
+
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+                        password = md.digest(password);
+                        StringBuilder sb = new StringBuilder();
+                        for (byte b : password) {
+                            sb.append(String.format("%02x", b));
+                        }
+                        System.out.println(sb);
+                        String sign = sb.toString();
+                        ParseObject firstObject = new ParseObject("login");
+                        firstObject.put("user_name", txtAccount.getText().toString());
+                        firstObject.put("hash_pass",sign);
+                        firstObject.saveInBackground(e -> {
+                            if (e != null){
+                                Log.e("MainActivity", e.getLocalizedMessage());
+                            }else{
+                                Log.d("MainActivity","Object saved.");
+                                Toast.makeText(getApplicationContext(),"註冊成功",Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        });
+                    }
                 }
             }
         });

@@ -6,70 +6,10 @@
     android:layout_height="wrap_content"
     tools:context=".SurpriseFragment">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/supbox"
         android:layout_width="match_parent"
-        android:layout_height="427dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="410dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/Shopimage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:src="@tools:sample/avatars" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/Shopname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="店家名稱:" />
-
-            <TextView
-                android:id="@+id/address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="地址:" />
-
-            <TextView
-                android:id="@+id/score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="評分:" />
-
-            <TextView
-                android:id="@+id/star"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="星星:" />
-
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/supbox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/box" />
-
-    </LinearLayout>
+        android:layout_height="500dp"
+        android:src="@drawable/box" />
 
 </FrameLayout>

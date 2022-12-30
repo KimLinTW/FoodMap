@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.parse.GetCallback;
 import com.parse.Parse;
@@ -49,7 +50,6 @@ public class SurpriseFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
-    private TextView output;
     private String name, shopname;
     private double distance = 0.0;
     private double Latitude1 = 25.298218036200446;
@@ -58,6 +58,8 @@ public class SurpriseFragment extends Fragment {
     private double Longitude2 = 120.85092391581581;
 
     private double lat = 0.0, lng = 0.0, gap = Integer.MAX_VALUE;
+
+    private TextView shop;
     public SurpriseFragment() {
         // Required empty public constructor
     }
@@ -87,9 +89,6 @@ public class SurpriseFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
-
     }
 
     @Override
@@ -98,12 +97,14 @@ public class SurpriseFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_surprise, container, false);
 
         ImageView supbox_btn = (ImageView) view.findViewById(R.id.supbox);
-        output = (TextView) view.findViewById(R.id.textView20);
+
+
         supbox_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             // add shop
             public void onClick(View view) {
                 System.out.println("btn ok");
+                supbox_btn.setVisibility(View.GONE);
                 for (int n = 1; n <= 11; n++){
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("Shop");
                     query.whereEqualTo("ID",n);
@@ -131,6 +132,10 @@ public class SurpriseFragment extends Fragment {
                                 if (kilodistance <= gap){
                                     gap = kilodistance;
                                     shopname = name;
+
+                                    Intent intent = new Intent(getActivity(), show_restaurant.class);
+                                    intent.putExtra("shopName", shopname);
+                                    startActivity(intent);
                                 }
                                 System.out.println("最近店家:　" +shopname + "/" + gap);
                             }

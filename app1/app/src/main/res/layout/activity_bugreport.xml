@@ -12,14 +12,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="標題欄(選單)"
+        android:singleLine="false"
+        android:text="錯誤回報"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtReport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="362dp"
+        android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="48dp"
         android:ems="10"
@@ -32,23 +34,23 @@
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginBottom="156dp"
         android:onClick="button_Click"
         android:text="送出"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtReport" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button8" />
 
     <Button
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginBottom="156dp"
         android:onClick="button2_Click"
-        android:text="離開"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        android:text="返回"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/spinner"

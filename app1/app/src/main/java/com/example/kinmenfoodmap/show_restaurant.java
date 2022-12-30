@@ -41,18 +41,18 @@ public class show_restaurant extends AppCompatActivity {
         setContentView(R.layout.activity_show_restaurant);
         name = (TextView) findViewById(R.id.restaurant_name);
         address = (TextView) findViewById(R.id.restaurant_address);
-        web = (WebView) findViewById(R.id.webview);
-        web.getSettings().setJavaScriptEnabled(true);
-        web.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        web.setWebViewClient(new myWebViewClient());
+//        web = (WebView) findViewById(R.id.webview);
+//        web.getSettings().setJavaScriptEnabled(true);
+//        web.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+//        web.setWebViewClient(new myWebViewClient());
         //String name =  rest_name += player.getString("shopName");
         //rest_address += player.getString("address");
         Bundle bundle = this.getIntent().getExtras();
         String rest_name = bundle.getString("shopName");
         String rest_address  = bundle.getString("address");
         //System.out.println("看到這裡的bundle");
-        name.setText("餐廳名稱"+rest_name);
-        address.setText("地址"+rest_address);
+        name.setText("餐廳名稱:"+rest_name);
+        address.setText("地址:"+rest_address);
 
 
     }
@@ -60,7 +60,10 @@ public class show_restaurant extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        db.close();
+        try{
+            db.close();
+        }catch (Exception e){
+        }
     }
 
     public void button_add_favorite (View view){
@@ -139,18 +142,18 @@ public class show_restaurant extends AppCompatActivity {
         @SuppressWarnings("deprecation")
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url){
-            web.loadUrl(url);
+//            web.loadUrl(url);
             return true;
         }
         @TargetApi(Build.VERSION_CODES.N)
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request){
-            web.loadUrl(request.getUrl().toString());
+//            web.loadUrl(request.getUrl().toString());
             return true;
         }
     }
     public void button_image(View view){
 
-        web.loadUrl(url);
+//        web.loadUrl(url);
     }
 }

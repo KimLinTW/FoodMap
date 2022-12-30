@@ -7,6 +7,7 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
@@ -23,28 +24,33 @@ public class add_store extends AppCompatActivity {
     }
     public void btn_add_store(View view) {
 
-        TextView output = (TextView) findViewById(R.id.lblOutput1);
+        TextView output = (TextView) findViewById(R.id.lblOutput1);//改用toast
         TextView address = (TextView) findViewById(R.id.shop_addr);
         TextView shop_name = (TextView) findViewById(R.id.shopname);
 
-        output.setText("新增成功");
+
 
         //vvvvvvvvvvvvvvvvvvvvvv  example: add something to remoted database   vvvvvvvvvvvvvvvvvvvvvvvvvvvv
         ParseObject firstObject = new ParseObject("Shop");
-
+        //ParseObject secObject = new ParseObject("ID");//mikey於20221230新增
         firstObject.put("shopName", shop_name.getText().toString());
-        firstObject.put("address", shop_name.getText().toString());
-        firstObject.put("ID", 0);
+        firstObject.put("address", address.getText().toString());
+        //secObject.put("address", shop_name.getText().toString());//mikey於20221230更改firstObject為secObject
+        firstObject.put("ID", 0);//有需要新增id嗎
 //        ParseGeoPoint currentUserLocation = new ParseGeoPoint(location.getLatitude(), location.getLongitude());
         ParseGeoPoint currentUserLocation = new ParseGeoPoint(0.2, 0.3);
         firstObject.put("latitude_longitude",currentUserLocation );
-        firstObject.put("ID", 0);
+       // firstObject.put("ID", 0);
+
 
         firstObject.saveInBackground(e -> {
             if (e != null){
+                Toast.makeText(this,"新增失敗,請檢查是否有空欄位或是網路問題",Toast.LENGTH_SHORT).show();
                 Log.e("MainActivity", e.getLocalizedMessage());
             }else{
+                Toast.makeText(this,"新增成功",Toast.LENGTH_SHORT).show();
                 Log.d("MainActivity","Object saved.");
+                finish();
             }
         });
         //secObject.saveInBackground(e -> {

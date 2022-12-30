@@ -40,14 +40,6 @@ public class searchFragment extends Fragment   {
                 getChildFragmentManager().findFragmentById(R.id.map);
         Button searchmapbutton = view.findViewById(R.id.searchmapbutton);
         EditText textView = (EditText) view.findViewById(R.id.searchtext);
-
-
-
-
-
-
-
-
         searchmapbutton.setOnClickListener(new View.OnClickListener() {
 
             @Override

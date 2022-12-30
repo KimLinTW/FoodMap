@@ -23,7 +23,7 @@ public class add_store extends AppCompatActivity {
     }
     public void btn_add_store(View view) {
 
-        TextView output = (TextView) findViewById(R.id.lblOutput);
+        TextView output = (TextView) findViewById(R.id.lblOutput1);
         TextView address = (TextView) findViewById(R.id.shop_addr);
         TextView shop_name = (TextView) findViewById(R.id.shopname);
 
@@ -47,13 +47,13 @@ public class add_store extends AppCompatActivity {
                 Log.d("MainActivity","Object saved.");
             }
         });
-        secObject.saveInBackground(e -> {
-            if (e != null){
-                Log.e("MainActivity", e.getLocalizedMessage());
-            }else{
-                Log.d("MainActivity","Object saved.");
-            }
-        });
+        //secObject.saveInBackground(e -> {
+        //    if (e != null){
+        //        Log.e("MainActivity", e.getLocalizedMessage());
+        //    }else{
+        //        Log.d("MainActivity","Object saved.");
+        //    }
+        //});
         //^^^^^^^^^^^^^^^^^^^^^^  example: add something to remoted database   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
     }
 

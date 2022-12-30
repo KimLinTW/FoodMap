@@ -54,16 +54,9 @@ import java.util.concurrent.TimeUnit;
 
 public class HomeFragment extends Fragment {
 
-
-
-
-
     ActivityMainBinding binding;
   //  ArrayList<String> userlist;
    public static HomeAdapter listAdapter;
-
-
-
 
    public static int threadflag = 0;
 
@@ -72,8 +65,6 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-
 
         Button btn1 = (Button) view.findViewById(R.id.button);
         Button btn_add = (Button) view.findViewById(R.id.add_shop_btn);
@@ -92,8 +83,6 @@ public class HomeFragment extends Fragment {
         {
             new fetchData().start();//userlist沒東西時才需要去抓資料
         }
-
-
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,7 +130,6 @@ public class HomeFragment extends Fragment {
                 //System.out.println(textView19.getText().toString());
                 //TextView textView2 = (TextView) view.findViewById(R.id.textView19); //null
                 //System.out.println(textView2);
-
             }
 
         });
@@ -166,11 +154,8 @@ public class HomeFragment extends Fragment {
 //            }
 //        });
 
-
         return view;
     }
-
-
 
 
     /*class thread2 extends Thread{
@@ -206,11 +191,7 @@ public class HomeFragment extends Fragment {
 
         }
 
-
-
-
     }*/
-
 
     /*class fetchData extends Thread{
         String data = "";
@@ -271,13 +252,9 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
-
             }catch( Exception e){
-
                 System.out.println(e);
-
             }
-
 
             handler.post(new Runnable() {
                 @Override
@@ -295,12 +272,7 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
-
-
     }*/
-
-
-
 }
 
 //https://stackoverflow.com/questions/313

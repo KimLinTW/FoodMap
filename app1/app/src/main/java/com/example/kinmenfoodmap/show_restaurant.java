@@ -3,12 +3,18 @@ package com.example.kinmenfoodmap;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.TargetApi;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQuery;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.parse.GetCallback;
@@ -19,9 +25,15 @@ import com.parse.ParseQuery;
 import java.util.List;
 
 public class show_restaurant extends AppCompatActivity {
+    private static String DATABASE_TABLE = "favorite";
+    private SQLiteDatabase db;
+    private StdDBHelper dbHelper;
     private TextView name, address;
     private WebView web;
     private String url;
+    private String sql;
+    private com.example.kinmenfoodmap.MainActivity MainActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -42,7 +54,38 @@ public class show_restaurant extends AppCompatActivity {
         name.setText("餐廳名稱"+rest_name);
         address.setText("地址"+rest_address);
 
+
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        db.close();
+    }
+
+    public void button_add_favorite (View view){
+        try{
+            //資料庫
+            dbHelper = new StdDBHelper(this);
+            db = dbHelper.getWritableDatabase();
+
+            long id;
+            Button add_favorite = (Button) findViewById(R.id.add_favorite);
+            Bundle bundle = this.getIntent().getExtras();
+            String rest_name = bundle.getString("shopName");
+            String rest_address  = bundle.getString("address");
+
+            ContentValues cv = new ContentValues();
+            cv.put("name", rest_name);
+            cv.put("address", rest_address);
+            id = db.insert(DATABASE_TABLE, null, cv);
+            System.out.println("dbsuccess");
+        }
+        catch (Exception ex){
+            System.out.println("錯誤" + ex.toString());
+        }
+    }
+
 
     public void return_Click(View view){
         finish();

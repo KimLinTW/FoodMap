@@ -44,7 +44,10 @@ public class favoriteFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onStop() {
         super.onStop();
-        db.close();
+        try {
+            db.close();
+        }catch (Exception e){
+        }
     }
 
     @Override

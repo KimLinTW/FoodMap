@@ -154,7 +154,7 @@ public class searchFragment extends Fragment   {
                     options.anchor(0.5f,0.5f);
                     options.draggable(false);
                     options.flat(false);
-                    options.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus));//地點圖標之後可以改
+                    options.icon(BitmapDescriptorFactory.fromResource(R.drawable.stamp));//地點圖標之後可以改
                     googleMap.addMarker(options);
                     i++;
                 }

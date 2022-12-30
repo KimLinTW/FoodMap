@@ -52,10 +52,8 @@ public class SurpriseFragment extends Fragment {
     private String mParam2;
     private String name, shopname;
     private double distance = 0.0;
-    private double Latitude1 = 25.298218036200446;
-    private double Longitude1 = 121.56814583830808;
-    private double Latitude2 = 21.905662893203562;
-    private double Longitude2 = 120.85092391581581;
+    private double Latitude1 = 24.44986207000755;
+    private double Longitude1 = 118.32255103916933;
 
     private double lat = 0.0, lng = 0.0, gap = Integer.MAX_VALUE;
 

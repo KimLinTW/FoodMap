@@ -31,7 +31,6 @@ public class ColorChange extends AppCompatActivity implements DialogInterface.On
     public void buttonexit_Click(View view)
     {
         finish();
-
     }
 
 

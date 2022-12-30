@@ -48,13 +48,13 @@ public class add_store extends AppCompatActivity {
                 Log.d("MainActivity","Object saved.");
             }
         });
-        secObject.saveInBackground(e -> {
-            if (e != null){
-                Log.e("MainActivity", e.getLocalizedMessage());
-            }else{
-                Log.d("MainActivity","Object saved.");
-            }
-        });
+        //secObject.saveInBackground(e -> {
+        //    if (e != null){
+        //        Log.e("MainActivity", e.getLocalizedMessage());
+        //    }else{
+        //        Log.d("MainActivity","Object saved.");
+        //    }
+        //});
         //^^^^^^^^^^^^^^^^^^^^^^  example: add something to remoted database   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
     }
 

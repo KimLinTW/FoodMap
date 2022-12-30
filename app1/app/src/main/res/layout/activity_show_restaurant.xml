@@ -78,4 +78,15 @@
         android:text="image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/add_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="140dp"
+        android:onClick="button_add_favorite"
+        android:text="加入最愛"
+        app:layout_constraintStart_toEndOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

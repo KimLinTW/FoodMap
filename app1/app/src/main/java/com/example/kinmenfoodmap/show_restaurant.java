@@ -60,7 +60,10 @@ public class show_restaurant extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        db.close();
+        try{
+            db.close();
+        }catch (Exception e){
+        }
     }
 
     public void button_add_favorite (View view){

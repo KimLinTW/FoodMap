@@ -79,19 +79,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="157dp"
-            android:layout_marginTop="388dp"
+            android:layout_marginBottom="34dp"
             android:onClick="buttonclllick"
             android:text="重新整理"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rest_list" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/rest_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="92dp"
-            android:text="TextView"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="Waiting..."
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />

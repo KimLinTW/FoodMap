@@ -62,6 +62,7 @@ public class Sign_in_new extends AppCompatActivity {
                         try {
                             String pass;
                             pass = txtPassword.getText().toString();
+                            pass = addSalt(pass);
                             password = pass.getBytes("UTF-8");
 
                         } catch (UnsupportedEncodingException e) {
@@ -89,6 +90,11 @@ public class Sign_in_new extends AppCompatActivity {
                     }
                 }
             }
+            public String addSalt(String pass){
+                pass += "salt";
+                return pass;
+            }
+
         });
     }
 }

@@ -69,6 +69,8 @@ public class log_in_new extends AppCompatActivity {
                     try {
                         String pass;
                         pass = txtPassword.getText().toString();
+                        pass = addSalt(pass);
+
                         password = pass.getBytes("UTF-8");
 
                     } catch (UnsupportedEncodingException e) {
@@ -101,9 +103,20 @@ public class log_in_new extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"帳號錯誤",Toast.LENGTH_SHORT).show();
                 }
             }
+
+
+
         });
+
+
     }
     public void btn_clk(View view){
         finish();
     }
+
+    public String addSalt(String pass){
+        pass += "salt";
+        return pass;
+    }
+
 }

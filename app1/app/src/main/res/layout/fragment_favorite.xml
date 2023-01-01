@@ -78,8 +78,10 @@
             android:id="@+id/show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="157dp"
-            android:layout_marginBottom="34dp"
+
+            android:layout_marginStart="140dp"
+            android:layout_marginBottom="28dp"
+
             android:onClick="buttonclllick"
             android:text="重新整理"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -89,9 +91,10 @@
             android:id="@+id/rest_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:text="Waiting..."
+
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="44dp"
+
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
